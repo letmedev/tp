@@ -1,0 +1,2 @@
+Un dossier ne peut pas être envoyé ! test si ce dossier contient un fichier
+
