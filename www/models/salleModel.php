@@ -129,22 +129,57 @@ class salleModel extends superModel{
 
     }
 
+    private function searchByVille($arg){
+        $bdd = $this->getDatabase();
+        $req = "SELECT id_salle, titre, pays, adresse, ville, cp, description, capacite, categorie FROM salle WHERE ville= :ville";
+        $requete = $bdd->prepare($req);
+        $requete->bindValue(':ville', $arg);
+        $requete->execute();
+        $result = $requete->fetchAll();
+
+        return $result;
+    }
+
+    private function searchBytitre($arg){
+        $bdd = $this->getDatabase();
+        $req = "SELECT id_salle, titre, pays, adresse, ville, cp, description, capacite, categorie FROM salle WHERE titre= :titre";
+        $requete = $bdd->prepare($req);
+        $requete->bindValue(':titre', $arg);
+        $requete->execute();
+        $result = $requete->fetchAll();
+
+        return $result;
+    }
+    private function searchByCapacite($arg){
+        $bdd = $this->getDatabase();
+        $req = "SELECT id_salle, titre, pays, adresse, ville, cp, description, capacite, categorie FROM salle WHERE capacite= :capacite";
+        $requete = $bdd->prepare($req);
+        $requete->bindValue(':capacite', $arg);
+        $requete->execute();
+        $result = $requete->fetchAll();
+
+        return $result;
+    }
+
     public function searchSalle($keySearch){
+        $salle = '';
+        if($this->searchBytitre($keySearch)){
 
-        function searchByName($keySearch){
+            $salle = $this->searchBytitre($keySearch);
+            return $salle;
 
+        } elseif($this->searchByVille($keySearch)){
+
+            $salle = $this->searchByVille($keySearch);
+            return $salle;
+        } elseif($this->searchByCapacite($keySearch)){
+
+            $salle = $this->searchByCapacite($keySearch);
+            return $salle;
+        } else{
+            $this->msg .= 'Cette salle n\'existe pas!';
+            return $this->getMsg();
         }
-
-        function searchByVille($keySearch){
-
-        }
-
-        function searchByCapacite($keySearch){
-
-        }
-
-        return $id;
-
     }
 }
 
@@ -164,11 +199,24 @@ $arrayTest = array(
     'categorie' => 'reunion1'
 );
 
-$obj->editSalle($arrayTest);
+//$obj->editSalle($arrayTest);
 echo '<hr>';
 echo '<pre>';
 print_r($obj->selectAllSalle());
 echo '</pre>';
 echo '<hr />';
 //$obj->deleteSalle('titre01');
+echo '<pre>';
+print_r($obj->searchSalle(12));
+echo '</pre>';
+
+echo '<hr />';
+echo '<br />';
+echo '<br />';
+echo '<br />';
+echo '<br />';
+echo '<br />';
+echo '<br />';
+echo '<br />';
+echo '<br />';
 ?>
