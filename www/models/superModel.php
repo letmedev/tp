@@ -2,7 +2,7 @@
 class superModel{
 
     public function getDatabase(){
-        require_once('..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'host.php');
+        include('..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'host.php');
         try{
             $bdd = new PDO('mysql:host='. $host .';dbname='. $dbname .';charset=utf8', $login, $password);
         } catch (Exeception $e){

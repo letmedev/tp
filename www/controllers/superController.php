@@ -10,7 +10,7 @@ class superController{
         ob_start(); // Demarage de l'outpout buffering
         include(''); // IL FAUT INCLURE LA VUE CONCERNER DYNAMIQUEMENT
         $content = ob_get_contents(); // stockage du contenu de l'outpout buffering dans une variable
-        ob_clean(); //vidage de la memoire
+        ob_clean(); //vidage de la memoire (Reset de l'outpout buffering)
         include('..' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'layout.php');
     }
 
