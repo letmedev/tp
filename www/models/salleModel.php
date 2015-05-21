@@ -67,7 +67,7 @@ class salleModel extends superModel{
     // Méthode de modification d'un salle (La methode a besoin d'un tableau en entrée avec les données modifier ou non suivante: titre, pays, ville, adresse, cp, description, photo, capacite, categorie)
     public function editSalle($tab){
         extract($tab);
-        $idInt = intval($id);
+        $idInt = intval($id_salle);
         $capaciteInt = intval($capacite);
 
         $bdd = $this->getDatabase();
@@ -78,8 +78,9 @@ class salleModel extends superModel{
         $resultatSelect = $requete->fetch();
 
         if($resultatSelect){
-            $req = "UPDATE salle SET titre = :titre, pays= :pays, ville= :ville, adresse= :adresse, cp= :cp, description= :description, photo= :photo, capacite= :capacite, categorie= :categorie";
+            $req = "UPDATE salle SET titre= :titre, pays= :pays, ville= :ville, adresse= :adresse, cp= :cp, description= :description, photo= :photo, capacite= :capacite, categorie= :categorie WHERE id_salle= :id";
             $requete = $bdd->prepare($req);
+            $requete->bindValue(':id', $idInt);
             $requete->bindValue(':titre', $titre);
             $requete->bindValue(':pays', $pays);
             $requete->bindValue(':ville', $ville);
@@ -89,12 +90,13 @@ class salleModel extends superModel{
             $requete->bindValue(':photo', $photo);
             $requete->bindValue(':capacite', $capaciteInt);
             $requete->bindValue(':categorie', $categorie);
+            $requete->execute();
 
             $this->msg .= 'La salle ' . $titre . ' a bien été modifier !';
-            $this->getMsg();
+            echo $this->getMsg();
         } else{
             $this->msg .= 'La salle que vous souhaiter modifié n\'existe pas !';
-            $this->getMsg();
+            echo $this->getMsg();
         }
     }
 
@@ -129,15 +131,15 @@ class salleModel extends superModel{
 
     public function searchSalle($keySearch){
 
-        private function searchByName($keySearch){
+        function searchByName($keySearch){
 
         }
 
-        private function searchByVille($keySearch){
+        function searchByVille($keySearch){
 
         }
 
-        private function searchByCapacite($keySearch){
+        function searchByCapacite($keySearch){
 
         }
 
@@ -150,22 +152,23 @@ $obj = new salleModel();
 print_r($obj->selectSalle('Salle Baron'));
 echo '<hr>';
 $arrayTest = array(
-    'titre' => 'titre01',
-    'pays' => 'pays',
-    'adresse' => 'adresse',
-    'ville' => 'ville',
-    'cp' => '94310',
-    'description' => 'description de la salle',
-    'photo' => 'chemin de la photo',
-    'capacite' => '12',
-    'categorie' => 'reunion'
+    'id_salle' => '8',
+    'titre' => 'titre01123456',
+    'pays' => 'pays1',
+    'adresse' => 'adresse1',
+    'ville' => 'ville1',
+    'cp' => '94490',
+    'description' => 'description de la salle1',
+    'photo' => 'chemin de la photo1',
+    'capacite' => '1212',
+    'categorie' => 'reunion1'
 );
 
-//$obj->addSalle($arrayTest);
+$obj->editSalle($arrayTest);
 echo '<hr>';
 echo '<pre>';
 print_r($obj->selectAllSalle());
 echo '</pre>';
 echo '<hr />';
-$obj->deleteSalle('titre01');
+//$obj->deleteSalle('titre01');
 ?>
