@@ -32,6 +32,7 @@ class superController{
             return 'Vous n\êtes pas administrateur !';
         }
     }
+
 }
 
 ?>
