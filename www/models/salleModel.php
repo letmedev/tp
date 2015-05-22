@@ -129,6 +129,7 @@ class salleModel extends superModel{
 
     }
 
+    // Méthode de recherche par ville retourn un tableau ou false
     private function searchByVille($arg){
         $bdd = $this->getDatabase();
         $req = "SELECT id_salle, titre, pays, adresse, ville, cp, description, capacite, categorie FROM salle WHERE ville= :ville";
@@ -140,6 +141,7 @@ class salleModel extends superModel{
         return $result;
     }
 
+    // Méthode de recherche par nom de salle, renvoi un tableau ou false
     private function searchBytitre($arg){
         $bdd = $this->getDatabase();
         $req = "SELECT id_salle, titre, pays, adresse, ville, cp, description, capacite, categorie FROM salle WHERE titre= :titre";
@@ -150,6 +152,8 @@ class salleModel extends superModel{
 
         return $result;
     }
+
+    //méthode de recherche de salle par capacite de personne, retourne un tableau ou false.
     private function searchByCapacite($arg){
         $bdd = $this->getDatabase();
         $req = "SELECT id_salle, titre, pays, adresse, ville, cp, description, capacite, categorie FROM salle WHERE capacite= :capacite";
@@ -161,8 +165,9 @@ class salleModel extends superModel{
         return $result;
     }
 
+    //Méthode de recherche génrérale qui fonction avec les méthode searchByTitre, searchByVille et searchByCapacite.
     public function searchSalle($keySearch){
-        $salle = '';
+
         if($this->searchBytitre($keySearch)){
 
             $salle = $this->searchBytitre($keySearch);
@@ -184,7 +189,9 @@ class salleModel extends superModel{
 }
 
 $obj = new salleModel();
+echo '<pre>';
 print_r($obj->selectSalle('Salle Baron'));
+echo '</pre>';
 echo '<hr>';
 $arrayTest = array(
     'id_salle' => '8',
