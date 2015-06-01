@@ -1,6 +1,6 @@
 <?php
-    $host = '';
-    $login = '';
-    $password = '';
-    $dbname = '';
+    $host = 'localhost';
+    $login = 'root';
+    $password = 'root';
+    $dbname = 'clericl13906com19871_lokisalle';
 ?>

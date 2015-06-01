@@ -187,43 +187,4 @@ class salleModel extends superModel{
         }
     }
 }
-
-$obj = new salleModel();
-echo '<pre>';
-print_r($obj->selectSalle('Salle Baron'));
-echo '</pre>';
-echo '<hr>';
-$arrayTest = array(
-    'id_salle' => '8',
-    'titre' => 'titre01123456',
-    'pays' => 'pays1',
-    'adresse' => 'adresse1',
-    'ville' => 'ville1',
-    'cp' => '94490',
-    'description' => 'description de la salle1',
-    'photo' => 'chemin de la photo1',
-    'capacite' => '1212',
-    'categorie' => 'reunion1'
-);
-
-//$obj->editSalle($arrayTest);
-echo '<hr>';
-echo '<pre>';
-print_r($obj->selectAllSalle());
-echo '</pre>';
-echo '<hr />';
-//$obj->deleteSalle('titre01');
-echo '<pre>';
-print_r($obj->searchSalle(12));
-echo '</pre>';
-
-echo '<hr />';
-echo '<br />';
-echo '<br />';
-echo '<br />';
-echo '<br />';
-echo '<br />';
-echo '<br />';
-echo '<br />';
-echo '<br />';
 ?>

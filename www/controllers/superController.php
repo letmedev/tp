@@ -2,24 +2,26 @@
 
 class superController{
 
-    private $userConnect = false;
-    private $userIsAdmin = false;
+    private $userConnect;
+    private $userIsAdmin;
+    private $msg;
 
     protected function render($tab){
         extract($tab); // Extraction du tableau
         ob_start(); // Demarage de l'outpout buffering
-        include(''); // IL FAUT INCLURE LA VUE CONCERNEE DYNAMIQUEMENT
+        include('..' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . $directoryView . DIRECTORY_SEPARATOR . $fileView);
         $content = ob_get_contents(); // stockage du contenu de l'outpout buffering dans une variable
-        ob_clean(); //vidage de la memoire (Reset de l'outpout buffering)
+        ob_end_clean(); //vidage de la memoire (Reset de l'outpout buffering)
         include('..' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'layout.php');
     }
 
     public function isConnected(){
-        if(!empty($_SESSION['user'])){
+        if(isset($_SESSION['user']['login'])){
             $this->userConnect = true;
             return $this->userConnect;
         } else {
-            return 'Veuillez vous connecté ! '; // AJOUTER LE LIEN VERS FORMULAIRE DE CONNEXIO
+            $this->userConnect = false;
+            return $this->userConnect;
         }
     }
 
@@ -31,6 +33,18 @@ class superController{
             $this->userIsAdmin = false;
             return 'Vous n\êtes pas administrateur !';
         }
+    }
+
+    public function getConnected(){
+        return $this->userConnected;
+    }
+
+    public function getAdmin(){
+        return $this->userIsAdmin;
+    }
+
+    public function getMsg(){
+        return $this->msg;
     }
 
 }

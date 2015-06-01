@@ -1,0 +1,11 @@
+
+
+#slider_content{
+    width: 10000px;
+    overflow: visible;
+}
+
+#slider_content > *{
+    max-width: 100%;
+    float: left;
+}
