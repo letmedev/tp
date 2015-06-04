@@ -2,7 +2,7 @@
     <h1><?php if(isset($result['titre']) && !empty($result['titre'])){ echo $result['titre']; } ?></h1>
     <div class="ficheContenairLeft">
         <a href="<?php if(isset($result['photo']) && !empty($result['photo'])){ echo $result['photo']; } ?>" data-lightbox="image-1" data-title="<?php if(isset($result['titre']) && !empty($result['titre'])){ echo $result['titre']; } ?>">
-            <img src="<?php if(isset($result['photo']) && !empty($result['photo'])){ echo $result['photo']; } ?>" alt=""/>
+            <img src="<?php if(isset($result['photo']) && !empty($result['photo'])){ echo $result['photo']; } ?>" alt="Photo salle"/>
         </a>
         <p>Cliquez sur l'image pour l'agrandir</p>
     </div>
