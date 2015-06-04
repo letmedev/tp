@@ -22,7 +22,16 @@
         </div>
     </header>
     <div class="trait_separateur_bleu"></div>
-
+    <nav class="menuUserConnected">
+        <div class="conteneur">
+            <ul>
+                <li><a href="">Accueil</a></li>
+                <li><a href="">Nos Salle</a></li>
+                <li><a href="">Qui sommes-nous</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
     <section class="conteneur">
         <div class="contenu">
             <?php
