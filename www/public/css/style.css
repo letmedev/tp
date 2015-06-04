@@ -97,7 +97,7 @@ header{
 }
 
 .marginTop40{
-    margin-top: 40px;
+    margin-top: 40px !important;
 }
 
 .marginLeft50{
@@ -166,6 +166,7 @@ header{
 .blocGris h2{
     color: #15b5f1;
     font-size: 2.6em;
+    font-weight: 100;
     margin-top: 0px;
     margin-bottom: 5px;
 }
@@ -396,7 +397,6 @@ header{
     margin-right: auto;
     background-color: #15b5f1;
     border: none;
-    border-radius: 5px;
     color:#ffffff;
     font-size: 1em;
     font-family: champagne-limousine, sans-serif;
@@ -404,6 +404,70 @@ header{
 
 .btnValidationInscription:hover{
     background-color: #0199d2;
+}
+
+.backLeftFormInscr{
+    width: 450px;
+    height: 550px;
+    background-color: #15b5f1;
+    float: left;
+    margin-top: 30px;
+}
+
+.leftFormInfo{
+    width: 448px;
+    height: 182px;
+    margin-top: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 2em;
+}
+
+.hautFormInscr{
+    width: 100%;
+    height: 128px;
+    background-image: url('../img/bandeauforminscr.png');
+}
+
+.publeft{
+    width: 135px;
+    height: 135px;
+    float: left;
+    margin-top: 23px;
+}
+
+.pubright{
+    width: 313px;
+    height: 182px;
+    float: left;
+    text-align: center;
+}
+
+.pubright p{
+    width: 307px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.backForm{
+    width: 548px;
+    height: 550px;
+    border: 1px solid #c1c1c1;
+    opacity: 1;
+    float: left;
+    margin-left: 24px;
+    margin-top: 30px;
+}
+
+.backForm h1{
+    background-color: #15b5f1;
+    color: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 0px;
 }
 
 .formInscription{
@@ -433,13 +497,19 @@ header{
     width: 180px;
     float: left;
     margin-left: 10px;
+    color: #303030;
 }
 
 .inputFormInscr{
     display: block;
     width: 300px;
+    height: 20px;
+    font-size: 1em;
     float: left;
-    border-radius: 5px;
+    border-style: none;
+    background-color: #f7f7f7;
+    font-family: Arial;
+    color: #777777;
 }
 
 .titreFormInscr{
@@ -450,6 +520,170 @@ header{
 footer{
     height: 150px;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 50px;
     background-color: #303030;
+}
+
+.footerLeft{
+    width: 340px;
+    height: 150px;
+    float: left;
+    text-align: center;
+}
+
+.logoFooter{
+    width: 121px;
+    height: 42px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    background-image: url("../img/sprite.png");
+    background-position: -264px -270px;
+}
+
+.footerLeft p{
+    color: #ffffff;
+    text-align: center;
+    font-family: champagne-limousine, sans-serif;
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+.footerLeft a{
+    text-decoration: none;
+    font-family: champagne-limousine, sans-serif;
+    color: #ffffff;
+    font-size: 0.8em;
+}
+
+.footerRight{
+    width: 684px;
+    height: 150px;
+    float: left;
+}
+
+.blocHautFooter{
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.blocHautFooter a{
+    display: inline-block;
+    color: #b0b0b0;
+    text-decoration: none;
+    font-family: champagne-limousine, sans-serif;
+
+}
+
+.blocBasFooter{
+    color: #b0b0b0;
+    text-align: center;
+    margin-top: 20px;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.footerRight a:hover{
+    color: #15b5f1;
+}
+
+.msg{
+    width: 100%;
+    min-height: 60px;
+}
+
+.msgSuccess{
+    width: 1024px;
+    border-radius: 5px;
+    background-color: #dff0d8;
+    color: #3c763d;
+    font-family: Arial;
+    margin-top: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    border: 1px solid #3c763d;
+}
+
+.msgWarning{
+    width: 1024px;
+    border-radius: 5px;
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+    font-family: Arial;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.msgAlert{
+    width: 1024px;
+    border-radius: 5px;
+    background-color: #f2dede;
+    color: #a9445d;
+    font-family: Arial;
+    margin-top: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    border: 1px solid #a9445d;
+}
+
+.msgInfo{
+    width: 1024px;
+    border-radius: 5px;
+    background-color: #d9edf7;
+    color: #31708f;
+    font-family: Arial;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.loupeFormInscr{
+    display: block;
+    width: 135px;
+    height: 135px;
+    background-image: url('../img/sprite.png');
+    background-position: 0px -335px;
+}
+
+.sourieFormInscr{
+    display: block;
+    width: 135px;
+    height: 135px;
+    background-image: url('../img/sourie.png');
+}
+
+.paiementFormInscr{
+    display: block;
+    width: 135px;
+    height: 135px;
+    background-image: url('../img/paiement.png');
+}
+
+.formConnect{
+    width: 100%;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.formConnect label{
+    display: block;
+    width: 500px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.formConnect input{
+    display: block;
+    width: 500px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 1em;
+    font-family: arial, sans-serif;
 }

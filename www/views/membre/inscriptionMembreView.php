@@ -1,6 +1,35 @@
-<h1 class="titreFormInscr">Formulaire d'inscription</h1>
+<div class="hautFormInscr"></div>
+<div class="backLeftFormInscr">
+    <div class="leftFormInfo">
+        <div class="publeft">
+            <span class="loupeFormInscr"></span>
+        </div>
+        <div class="pubright">
+            <p>Trouver la salle idéale en quelque clics !</p>
+        </div>
+    </div>
+    <div class="leftFormInfo">
+        <div class="publeft">
+            <div class="sourieFormInscr"></div>
+        </div>
+        <div class="pubright">
+            <p>Reservez en ligne</p>
+        </div>
+    </div>
+    <div class="leftFormInfo">
+        <div class="publeft">
+            <div class="paiementFormInscr"></div>
+        </div>
+        <div class="pubright">
+            <p>Paiement en ligne securisé !</p>
+        </div>
+    </div>
+</div>
 
-<form action="http://localhost/tp/www/public/routeur.php/membre/inscription" method="post" class="formInscription">
+<div class="backForm">
+    <h1 class="titreFormInscr">Formulaire d'inscription</h1>
+
+    <form action="<?php echo superController::url; ?>membre/inscription" method="post" class="formInscription">
 
         <div class="groupForm">
             <label class="labelFormInscr" for="pseudo">Pseudo: </label>
@@ -18,7 +47,7 @@
 
         <div class="groupForm">
             <label class="labelFormInscr" for="prenom">Prénom: </label>
-            <input class="inputFormInscr" type="text" id="prenom" nom="prenom" value="<?php if(isset($_POST['prenom']) && !empty($_POST['prenom'])){ echo $_POST['prenom']; } ?>" placeholder="Votre prénom…"/>
+            <input class="inputFormInscr" type="text" id="prenom" name="prenom" value="<?php if(isset($_POST['prenom']) && !empty($_POST['prenom'])){ echo $_POST['prenom']; } ?>" placeholder="Votre prénom…"/>
         </div>
 
         <div class="traitFormInscr"></div>
@@ -86,3 +115,5 @@
         </div>
 
     </form>
+</div>
+<div class="clear"></div>

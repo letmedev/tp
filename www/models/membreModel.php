@@ -6,7 +6,6 @@ class membreModel extends superModel{
     public function addMembre(array $tab){
 
         extract($tab);
-        $statutInt = intval($statut);
 
         $bdd = $this->getDatabase();
         $req = "SELECT id_membre, pseudo, nom, prenom, email, sexe, ville, cp, adresse, statut FROM membre WHERE email = :email";
@@ -21,7 +20,7 @@ class membreModel extends superModel{
             $req = "INSERT INTO membre(pseudo, mdp, nom, prenom, email, sexe, ville, cp, adresse, statut) VALUES(:pseudo, :mdp, :nom, :prenom, :email, :sexe, :ville, :cp, :adresse, :statut)";
             $requete = $bdd->prepare($req);
             $requete->bindValue(':pseudo', $pseudo);
-            $requete->bindValue(':mdp', $mdp);
+            $requete->bindValue(':mdp', $password);
             $requete->bindValue(':nom', $nom);
             $requete->bindValue(':prenom', $prenom);
             $requete->bindValue(':email', $email);
@@ -29,14 +28,12 @@ class membreModel extends superModel{
             $requete->bindValue(':ville', $ville);
             $requete->bindValue(':cp', $cp);
             $requete->bindValue(':adresse', $adresse);
-            $requete->bindValue(':statut', $statutInt);
+            $requete->bindValue(':statut', 0);
             $requete->execute();
 
-            $this->msg .= 'Votre compte a bien été créer !'; // Ajouter un lien vers le formulaire de connexion
-            echo $this->getMsg();
+            $this->msg .= "<div class='msgSuccess'>Votre inscription à bien été prise en compte.</div>";
         } else{
-            $this->msg .= 'Utilisateur déjà existant !';
-            echo $this->getMsg();
+            $this->msg .= "<div class='msgAlert'>Utilisateur déjà existant.</div>";
         }
     }
 
@@ -110,11 +107,21 @@ class membreModel extends superModel{
         $requete->execute();
         $resultat = $requete->fetch();
 
-        if(!$resultat){
-            return $resultat;
-        } else{
-            $this->msg .= 'L\'utilisateur demandé n\'existe pas!';
-            return $this->getMsg();
+        return $resultat;
+    }
+
+    public function connectMembre($email, $password){
+        $bdd = $this->getDatabase();
+        $req = "SELECT id_membre, pseudo, mdp, nom, prenom, sexe, ville, cp, adresse, statut FROM membre WHERE email = :email";
+        $requete = $bdd->prepare($req);
+        $requete->bindValue(':email', $email);
+        $requete->execute();
+        $result = $requete->fetch();
+
+        if($password == $result['mdp']){
+            return $result;
+        } else {
+            return false;
         }
     }
 }

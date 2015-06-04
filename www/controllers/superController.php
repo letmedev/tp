@@ -2,9 +2,12 @@
 
 class superController{
 
+    const url = "http://localhost/tp/www/public/routeur.php/";
+    const urlpublic = "http://localhost/tp/www/public/";
+
     private $userConnect;
     private $userIsAdmin;
-    private $msg;
+    public $msg = "";
 
     protected function render($tab){
         extract($tab); // Extraction du tableau
@@ -16,7 +19,7 @@ class superController{
     }
 
     public function isConnected(){
-        if(isset($_SESSION['user']['login'])){
+        if(isset($_SESSION['user']['pseudo'])){
             $this->userConnect = true;
             return $this->userConnect;
         } else {
@@ -32,6 +35,16 @@ class superController{
         } else {
             $this->userIsAdmin = false;
             return 'Vous n\êtes pas administrateur !';
+        }
+    }
+
+    public function menuUser(){
+        if($this->isConnected()){
+            return '<a href="'. superController::url .'membre/compte" title="Mon compte" class="user_menu">Mon compte</a>
+                <a href="'. superController::url .'membre/deconnexion" title="deconnexion" class="user_menu">Déconnexion</a>';
+        } else{
+            return '<a href="'. superController::url .'membre/connexion" title="connexion" class="user_menu">Connexion</a>
+                <a href="'. superController::url .'membre/inscription" title="inscription" class="user_menu">Inscription</a>';
         }
     }
 

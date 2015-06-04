@@ -89,12 +89,24 @@
             <div class="btnAnnonce"><a href="">Voir cette salle</a></div>
         </div>
         <div class="blocAnnonce marginLeft50">
+            <h4><?php if(isset($produitMinute[1]['titre']) && !empty($produitMinute[1]['titre'])){ echo $produitMinute[1]['titre']; } ?></h4>
+            <img src="<?php if(isset($produitMinute[1]['photo']) && !empty($produitMinute[1]['photo'])){ echo $produitMinute[1]['photo']; } ?>" >
+            <h5><?php if(isset($produitMinute[1]['ville']) && !empty($produitMinute[1]['ville'])){ echo $produitMinute[1]['ville']; } ?></h5>
+            <p><?php if(isset($produitMinute[1]['description']) && !empty($produitMinute[1]['description'])){ echo $produitMinute[1]['description']; } ?></p>
             <div class="btnAnnonce"><a href="">Voir cette salle</a></div>
         </div>
         <div class="blocAnnonce marginLeft50">
+            <h4><?php if(isset($produitMinute[2]['titre']) && !empty($produitMinute[2]['titre'])){ echo $produitMinute[2]['titre']; } ?></h4>
+            <img src="<?php if(isset($produitMinute[2]['photo']) && !empty($produitMinute[2]['photo'])){ echo $produitMinute[2]['photo']; } ?>" >
+            <h5><?php if(isset($produitMinute[2]['ville']) && !empty($produitMinute[2]['ville'])){ echo $produitMinute[2]['ville']; } ?></h5>
+            <p><?php if(isset($produitMinute[2]['description']) && !empty($produitMinute[2]['description'])){ echo $produitMinute[2]['description']; } ?></p>
             <div class="btnAnnonce"><a href="">Voir cette salle</a></div>
         </div>
         <div class="blocAnnonce marginLeft50">
+            <h4><?php if(isset($produitMinute[3]['titre']) && !empty($produitMinute[3]['titre'])){ echo $produitMinute[3]['titre']; } ?></h4>
+            <img src="<?php if(isset($produitMinute[3]['photo']) && !empty($produitMinute[3]['photo'])){ echo $produitMinute[3]['photo']; } ?>" >
+            <h5><?php if(isset($produitMinute[3]['ville']) && !empty($produitMinute[3]['ville'])){ echo $produitMinute[3]['ville']; } ?></h5>
+            <p><?php if(isset($produitMinute[3]['description']) && !empty($produitMinute[3]['description'])){ echo $produitMinute[3]['description']; } ?></p>
             <div class="btnAnnonce"><a href="">Voir cette salle</a></div>
         </div>
         <div class="clear"></div>

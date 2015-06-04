@@ -7,7 +7,8 @@ $route = array(
     'membre' => array(
         'connexion' => 'connexion',
         'inscription' => 'inscription',
-        'profil' => 'profil'
+        'compte' => 'monCompte',
+        'deconnexion' => 'deconnexion'
     )
 );
 
