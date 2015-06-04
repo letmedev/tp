@@ -614,6 +614,8 @@ footer{
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
+    border: 1px solid #8a6d3b;
+    margin-bottom: 10px;
 }
 
 .msgAlert{
@@ -627,6 +629,7 @@ footer{
     padding-bottom: 20px;
     text-align: center;
     border: 1px solid #a9445d;
+    margin-bottom: 10px;
 }
 
 .msgInfo{
@@ -638,6 +641,7 @@ footer{
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .loupeFormInscr{
@@ -720,4 +724,81 @@ footer{
 .menuUserConnected .conteneur ul li a:hover{
     background-color: #303030;
     color: #15b5f1;
+}
+.ficheContenair{
+    width: 100%;
+}
+
+.ficheContenairLeft{
+    width: 450px;
+    float: left;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.ficheContenairLeft img{
+    width: 450px;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #303030;
+}
+
+.ficheContenairRight{
+    width: 547px;
+    font-family: champagne-limousine, sans-serif;
+    float: left;
+    margin-left: 25px;
+}
+
+.ficheContenairRightTop{
+    width: 100%;
+    display: block;
+    min-height: 175px;
+    border-bottom: 1px solid #15b5f1;
+}
+
+.ficheContenairRightMiddle{
+    width: 100%;
+    min-height: 100px;
+    display: block;
+}
+.ficheContenair h1{
+    width: 100%;
+    text-align: center;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    border-bottom: 1px solid #15b5f1;
+}
+
+.info{
+    width: 100%;
+}
+
+.info tr{
+    width: 100%;
+}
+
+.infoLibelle{
+    width: 90px;
+}
+
+.infoValeur{
+    width: 200px;
+}
+
+.btnAddPanier{
+    width: 100%;
+    height: 40px;
+    background-color: #15b5f1;
+    color: #ffffff;
+    font-size: 1.3em;
+    font-family: champagne-limousine, sans-serif;
+    border: none;
+}
+
+.btnAddPanier:hover{
+    background-color: #0199d2;
 }

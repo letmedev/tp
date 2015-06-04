@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title>Lokisalle | Location de salle de réunions</title>
     <link rel="stylesheet" type="text/css" href="<?php echo superController::urlpublic ?>css/style.css">
-    <link rel="stylesheet" href="<?php echo superController::urlpublic ?>css/flexslider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?php echo superController::urlpublic ?>css/flexslider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?php echo superController::urlpublic ?>css/lightbox.css">
 </head>
 <body>
 
@@ -92,5 +93,21 @@
     <script src="<?php echo superController::urlpublic ?>js/jquery.easing.js"></script>
     <script src="<?php echo superController::urlpublic ?>js/jquery.mousewheel.js"></script>
     <script defer src="<?php echo superController::urlpublic ?>js/demo.js"></script>
+    <!-- Intégration d'une lightbox -->
+    <script src="<?php echo superController::urlpublic ?>js/jquery-1.11.0.min.js"></script>
+    <script src="<?php echo superController::urlpublic ?>js/lightbox.js"></script>
+
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2196019-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
 </body>
 </html>

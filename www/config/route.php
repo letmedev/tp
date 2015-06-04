@@ -2,7 +2,8 @@
 
 $route = array(
     'produit' => array(
-        'index' => 'index'
+        'index' => 'index',
+        'fiche' => 'fiche'
     ),
     'membre' => array(
         'connexion' => 'connexion',

@@ -7,7 +7,7 @@ class produitModel extends superModel{
         extract($tab);
     }
 
-    public function selectProduit($titre){
+    public function selectProduitByTitre($titre){
         $bdd = $this->getDatabase();
 
         $req = "SELECT s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description,
@@ -27,11 +27,27 @@ class produitModel extends superModel{
         }
     }
 
+    public function selectProduitById($id){
+        $bdd = $this->getDatabase();
+
+        $req = "SELECT p.id_produit, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat, s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description,
+        s.photo, s.capacite, s.categorie
+        FROM produit p, salle s
+        WHERE p.id_produit = :id_produit
+        AND p.id_salle = s.id_salle";
+        $requete = $bdd->prepare($req);
+        $requete->bindValue(':id_produit', $id);
+        $requete->execute();
+        $result = $requete->fetch();
+
+        return $result;
+    }
+
     public function selectTopProduit(){
         $bdd = $this->getDatabase();
 
         $req = "SELECT s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description,
-        s.photo, s.capacite, s.categorie, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat
+        s.photo, s.capacite, s.categorie, p.id_produit, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat
         FROM salle s, produit p
         WHERE p.id_salle = s.id_salle
         ORDER BY p.date_enregistrement
