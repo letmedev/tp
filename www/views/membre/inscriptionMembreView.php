@@ -29,7 +29,7 @@
 <div class="backForm">
     <h1 class="titreFormInscr">Formulaire d'inscription</h1>
 
-    <form action="<?php echo superController::url; ?>membre/inscription" method="post" class="formInscription">
+    <form action="<?php echo \controller\superController\superController::URL; ?>membre/inscription" method="post" class="formInscription">
 
         <div class="groupForm">
             <label class="labelFormInscr" for="pseudo">Pseudo: </label>

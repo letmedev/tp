@@ -51,7 +51,42 @@
             </table>
         </div>
     </div>
+    <div class="clear"></div>
+</div>
 
+<div class="blocAvis">
+    <div class="trait_separateur_bleu"></div>
+    <h2>Votre avis nous interesse !</h2>
+    <div class="blocAvisLeft">
+        <form action="<?php echo \controller\superController\superController::URL; ?>produit/fiche" method="post">
+            <input type="hidden" name="id_salle" value="<?php if(isset($result['id_salle']) && !empty($result['id_salle'])){ echo $result['id_salle']; } ?>" />
+            <label for="titre">Titre</label>
+            <input type="text" name="titre" id="titre" placeholder="Titre de votre commentaire…"/>
+
+            <label for="commentaire" class="marginTop20">Votre avis</label>
+            <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea>
+
+            <label for="note" class="marginTop20">Attribuer une note</label>
+            <table>
+                <tr>
+                    <td>
+                        <select name="note" id="note">
+                            <?php
+                                for($i = 1; $i <= 20; $i++){
+                                    echo '<option value="'. $i .'">'. $i .'/20</option>';
+                                }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <input type="submit" name="btnAvis" class="btnAvis" value="Valider" />
+        </form>
+    </div>
+    <div class="blocAvisRight">
+
+    </div>
     <div class="clear"></div>
 </div>
 
@@ -64,28 +99,28 @@
             <img src="<?php if(isset($produitTop[0]['photo']) && !empty($produitTop[0]['photo'])){ echo $produitTop[0]['photo']; } ?>" >
             <h5><?php if(isset($produitTop[0]['ville']) && !empty($produitTop[0]['ville'])){ echo $produitTop[0]['ville']; } ?></h5>
             <p><?php if(isset($produitTop[0]['description']) && !empty($produitTop[0]['description'])){ echo $produitTop[0]['description']; } ?></p>
-            <div class="btnAnnonce"><a href="<?php if(isset($produitTop[0]['id_produit']) && !empty($produitTop[0]['id_produit'])){ echo superController::url . 'produit/fiche/'.$produitTop[0]['id_produit']; }?>">Voir cette salle</a></div>
+            <div class="btnAnnonce"><a href="<?php if(isset($produitTop[0]['id_produit']) && !empty($produitTop[0]['id_produit'])){ echo \controller\superController\superController::URL . 'produit/fiche/'.$produitTop[0]['id_produit']; }?>">Voir cette salle</a></div>
         </div>
         <div class="blocAnnonce marginLeft50">
             <h4><?php if(isset($produitTop[1]['titre']) && !empty($produitTop[1]['titre'])){ echo $produitTop[1]['titre']; } ?></h4>
             <img src="<?php if(isset($produitTop[1]['photo']) && !empty($produitTop[1]['photo'])){ echo $produitTop[1]['photo']; } ?>" >
             <h5><?php if(isset($produitTop[1]['ville']) && !empty($produitTop[1]['ville'])){ echo $produitTop[1]['ville']; } ?></h5>
             <p><?php if(isset($produitTop[1]['description']) && !empty($produitTop[1]['description'])){ echo $produitTop[1]['description']; } ?></p>
-            <div class="btnAnnonce"><a href="<?php if(isset($produitTop[1]['id_produit']) && !empty($produitTop[1]['id_produit'])){ echo superController::url . 'produit/fiche/'.$produitTop[1]['id_produit']; }?>">Voir cette salle</a></div>
+            <div class="btnAnnonce"><a href="<?php if(isset($produitTop[1]['id_produit']) && !empty($produitTop[1]['id_produit'])){ echo \controller\superController\superController::URL . 'produit/fiche/'.$produitTop[1]['id_produit']; }?>">Voir cette salle</a></div>
         </div>
         <div class="blocAnnonce marginLeft50">
             <h4><?php if(isset($produitTop[2]['titre']) && !empty($produitTop[2]['titre'])){ echo $produitTop[2]['titre']; } ?></h4>
             <img src="<?php if(isset($produitTop[2]['photo']) && !empty($produitTop[2]['photo'])){ echo $produitTop[2]['photo']; } ?>" >
             <h5><?php if(isset($produitTop[2]['ville']) && !empty($produitTop[2]['ville'])){ echo $produitTop[2]['ville']; } ?></h5>
             <p><?php if(isset($produitTop[2]['description']) && !empty($produitTop[2]['description'])){ echo $produitTop[2]['description']; } ?></p>
-            <div class="btnAnnonce"><a href="<?php if(isset($produitTop[2]['id_produit']) && !empty($produitTop[2]['id_produit'])){ echo superController::url . 'produit/fiche/'.$produitTop[2]['id_produit']; }?>">Voir cette salle</a></div>
+            <div class="btnAnnonce"><a href="<?php if(isset($produitTop[2]['id_produit']) && !empty($produitTop[2]['id_produit'])){ echo \controller\superController\superController::URL . 'produit/fiche/'.$produitTop[2]['id_produit']; }?>">Voir cette salle</a></div>
         </div>
         <div class="blocAnnonce marginLeft50">
             <h4><?php if(isset($produitTop[3]['titre']) && !empty($produitTop[3]['titre'])){ echo $produitTop[3]['titre']; } ?></h4>
             <img src="<?php if(isset($produitTop[3]['photo']) && !empty($produitTop[3]['photo'])){ echo $produitTop[3]['photo']; } ?>" >
             <h5><?php if(isset($produitTop[3]['ville']) && !empty($produitTop[3]['ville'])){ echo $produitTop[3]['ville']; } ?></h5>
             <p><?php if(isset($produitTop[3]['description']) && !empty($produitTop[3]['description'])){ echo $produitTop[3]['description']; } ?></p>
-            <div class="btnAnnonce"><a href="<?php if(isset($produitTop[3]['id_produit']) && !empty($produitTop[3]['id_produit'])){ echo superController::url . 'produit/fiche/'.$produitTop[3]['id_produit']; }?>">Voir cette salle</a></div>
+            <div class="btnAnnonce"><a href="<?php if(isset($produitTop[3]['id_produit']) && !empty($produitTop[3]['id_produit'])){ echo \controller\superController\superController::URL . 'produit/fiche/'.$produitTop[3]['id_produit']; }?>">Voir cette salle</a></div>
         </div>
         <div class="clear"></div>
     </div>

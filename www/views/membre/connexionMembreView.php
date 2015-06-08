@@ -29,7 +29,7 @@
 <div class="backForm">
     <h1 class="titreFormInscr">Connectez-vous !</h1>
 
-    <form action="<?php echo superController::url; ?>membre/connexion" method="post" class="formInscription">
+    <form action="<?php echo \controller\superController\superController::URL ?>membre/connexion" method="post" class="formInscription">
 
         <div class="formConnect marginTop40">
             <label for="email">Email: </label>

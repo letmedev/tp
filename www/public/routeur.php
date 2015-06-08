@@ -28,17 +28,19 @@ if(isset($_SERVER['PATH_INFO']) && !empty($_SERVER['PATH_INFO'])){
 
         $fileController = $controller.'Controller.php';
         $classController = $controller.'Controller';
+        $adresseController = '\\controller\\' . $classController . '\\' . $classController;
 
         include('..' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $fileController);
 
         // Si l'action est bien indexer dans le tableau de route
         if(in_array($action, $route[$controller])){
             // Si la methode existe dans la class alors j'initialise l'objet
-            if(method_exists($classController, $route[$controller][$action])){
+
+            if(method_exists($adresseController, $route[$controller][$action])){
 
                 $methode = $route[$controller][$action];
 
-                $obj = new $classController;
+                $obj = new $adresseController();
                 $obj->$methode($arg);
 
             } else{

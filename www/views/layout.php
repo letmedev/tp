@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>Lokisalle | Location de salle de réunions</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo superController::urlpublic ?>css/style.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo superController::urlpublic ?>css/flexslider.css" type="text/css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="<?php echo superController::urlpublic ?>css/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo \controller\superController\superController::URLPUBLIC ?>css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo \controller\superController\superController::URLPUBLIC ?>css/flexslider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?php echo \controller\superController\superController::URLPUBLIC ?>css/lightbox.css">
 </head>
 <body>
 
     <header>
         <div class="conteneur">
             <div class="header_gauche">
-                <a href="<?php echo superController::url ?>produit/index" title="lokisalle" id="logo_header"><span>lokisalle</span></a>
+                <a href="<?php echo \controller\superController\superController::URL ?>produit/index" title="lokisalle" id="logo_header"><span>lokisalle</span></a>
             </div>
             <div class="header_droit">
                 <div id="user_menu">
@@ -73,10 +73,10 @@
         </div>
     </footer>
     <!-- jQuery -->
-    <script src="<?php echo superController::urlpublic ?>js/jquery.min.js"></script>
+    <script src="<?php echo \controller\superController\superController::URLPUBLIC ?>js/jquery.min.js"></script>
 
     <!-- FlexSlider -->
-    <script defer src="<?php echo superController::urlpublic ?>js/jquery.flexslider.js"></script>
+    <script defer src="<?php echo \controller\superController\superController::URLPUBLIC ?>js/jquery.flexslider.js"></script>
 
     <script type="text/javascript">
         $(function(){
@@ -90,12 +90,12 @@
     </script>
 
     <!-- Optional FlexSlider Additions -->
-    <script src="<?php echo superController::urlpublic ?>js/jquery.easing.js"></script>
-    <script src="<?php echo superController::urlpublic ?>js/jquery.mousewheel.js"></script>
-    <script defer src="<?php echo superController::urlpublic ?>js/demo.js"></script>
+    <script src="<?php echo \controller\superController\superController::URLPUBLIC ?>js/jquery.easing.js"></script>
+    <script src="<?php echo \controller\superController\superController::URLPUBLIC ?>js/jquery.mousewheel.js"></script>
+    <script defer src="<?php echo \controller\superController\superController::URLPUBLIC ?>js/demo.js"></script>
     <!-- Intégration d'une lightbox -->
-    <script src="<?php echo superController::urlpublic ?>js/jquery-1.11.0.min.js"></script>
-    <script src="<?php echo superController::urlpublic ?>js/lightbox.js"></script>
+    <script src="<?php echo \controller\superController\superController::URLPUBLIC ?>js/jquery-1.11.0.min.js"></script>
+    <script src="<?php echo \controller\superController\superController::URLPUBLIC ?>js/lightbox.js"></script>
 
     <script>
         var _gaq = _gaq || [];
