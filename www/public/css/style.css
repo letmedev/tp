@@ -863,15 +863,6 @@ footer{
     margin-top: 10px;
 }
 
-.blocAvisRight{
-    width: 495px;
-    height: 350px;
-    float: left;
-    margin-left: 18px;
-    border-left: 1px solid #aaaaaa;
-    margin-bottom: 10px;
-}
-
 .btnAvis{
     display: block;
     width: 80%;
@@ -888,3 +879,77 @@ footer{
 .btnAvis:hover{
     background-color: #0199d2;
 }
+
+.blocAvisRight{
+    width: 495px;
+    height: 350px;
+    overflow: auto;
+    float: left;
+    margin-left: 18px;
+    border-left: 1px solid #aaaaaa;
+    margin-bottom: 10px;
+}
+
+.headAvis{
+    width: 90%;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titreAvis{
+    width: 70%;
+    margin-left: 0;
+    float: left;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-align: left !important;@
+}
+
+.noteAvis{
+    width: 5%;
+    margin-left: 10%;
+    float: left;
+    text-align: right !important;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.commentaireAvis{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.infoAvis{
+    display: block;
+    width: 90%;
+    height: 19px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.autheurAvis{
+    width: 50%;
+    margin-left: 0;
+    float: left;
+    text-align: left;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 0.8em;
+}
+
+.dateAvis{
+    width: 30%;
+    float: left;
+    margin-left: 20%;
+    text-align: right;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 0.8em;
+}
+

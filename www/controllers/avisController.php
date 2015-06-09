@@ -1,10 +1,9 @@
 <?php
-namespace controller\avisController{
+/*namespace controller\avisController{
 
-    use controller\superController\superController;
     use model\avisModel\avisModel;
 
-    class avisController extends superController{
+    class avisController{
 
         public function ajoutAvis(array $tab){
 

@@ -1,4 +1,4 @@
-<div class="ficheContenair">
+<section class="ficheContenair">
     <h1><?php if(isset($result['titre']) && !empty($result['titre'])){ echo $result['titre']; } ?></h1>
     <div class="ficheContenairLeft">
         <a href="<?php if(isset($result['photo']) && !empty($result['photo'])){ echo $result['photo']; } ?>" data-lightbox="image-1" data-title="<?php if(isset($result['titre']) && !empty($result['titre'])){ echo $result['titre']; } ?>">
@@ -52,13 +52,13 @@
         </div>
     </div>
     <div class="clear"></div>
-</div>
+</section>
 
 <div class="blocAvis">
     <div class="trait_separateur_bleu"></div>
     <h2>Votre avis nous interesse !</h2>
-    <div class="blocAvisLeft">
-        <form action="<?php echo \controller\superController\superController::URL; ?>produit/fiche" method="post">
+    <section class="blocAvisLeft">
+        <form action="<?php echo \controller\superController\superController::URL; ?>produit/fiche/<?php if(isset($result['id_produit']) && !empty($result['id_produit'])){ echo $result['id_produit']; } ?>" method="post">
             <input type="hidden" name="id_salle" value="<?php if(isset($result['id_salle']) && !empty($result['id_salle'])){ echo $result['id_salle']; } ?>" />
             <label for="titre">Titre</label>
             <input type="text" name="titre" id="titre" placeholder="Titre de votre commentaire…"/>
@@ -83,14 +83,32 @@
 
             <input type="submit" name="btnAvis" class="btnAvis" value="Valider" />
         </form>
-    </div>
-    <div class="blocAvisRight">
-
-    </div>
+    </section>
+    <section class="blocAvisRight">
+        <?php
+            if(isset($avis) && !empty($avis)){
+                foreach($avis as $result){
+                    echo "<div class='headAvis'>";
+                    echo "    <div class='titreAvis'>" . $result['titre'] . "</div>";
+                    echo "    <div class='noteAvis'>" . $result['note'] . "/20</div>";
+                    echo "<div class='clear'></div>";
+                    echo "</div>";
+                    echo "<div class='commentaireAvis'>" . $result['commentaire'] . "</div>";
+                    echo "<div class='infoAvis'>";
+                    echo "  <div class='autheurAvis'>Ecrit par: " . $result['id_membre'] . "</div>";
+                    echo "  <div class='dateAvis'>" . $result['date_avis'] . "</div>";
+                    echo "</div>";
+                    echo "<div class='clear'></div>";
+                }
+            } else{
+                echo '<div class="commentaireAvis">Aucun avis n\'est disponible pour cette salle.</div>';
+            }
+        ?>
+    </section>
     <div class="clear"></div>
 </div>
 
-<div class="blocGris">
+<section class="blocGris">
     <div class="trait_separateur_bleu"></div>
     <h2>Notre sélection</h2>
     <div class="zoneAnnonce">
@@ -124,7 +142,7 @@
         </div>
         <div class="clear"></div>
     </div>
-</div>
+</section>
 
 <div class="blocBlanc marginTop20">
     <p>Suivez-nous !</p>
