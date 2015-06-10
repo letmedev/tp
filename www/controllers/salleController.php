@@ -23,6 +23,24 @@ namespace controller\salleController{
 
             $this->render($tab);
         }
+
+        public function fiche($id){
+            session_start();
+
+            include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'salleModel.php');
+
+            $objSalleModel = new salleModel();
+            $result = $objSalleModel->selectSalleById($id);
+
+            $tab = array(
+                'msg' => $this->getMsg(),
+                'directoryView' => 'salle',
+                'fileView' => 'ficheSalleView.php',
+                'salle' => $result
+            );
+
+            $this->render($tab);
+        }
     }
 }
 

@@ -47,7 +47,7 @@ namespace model\salleModel{
         }
 
         // Methode de selection d'une salle (A besoin du nom de la salle en argument)
-        public function selectSalle($nom){
+        public function selectSalleByNom($nom){
 
             $bdd= $this->getDatabase();
             $req = "SELECT id_salle, titre, pays, ville, adresse, cp, description, photo, capacite, categorie FROM salle WHERE titre= :nom";
@@ -68,6 +68,17 @@ namespace model\salleModel{
             $result = $requete->fetchAll();
 
             return $result;
+        }
+
+        public function selectSalleById($id){
+            $bdd= $this->getDatabase();
+            $req = "SELECT id_salle, titre, pays, ville, adresse, cp, description, photo, capacite, categorie FROM salle WHERE id_salle= :idSalle";
+            $requete = $bdd->prepare($req);
+            $requete->bindValue(':idSalle', $id);
+            $requete->execute();
+            $resultat = $requete->fetch();
+
+            return $resultat;
         }
 
         // Méthode de modification d'un salle (La methode a besoin d'un tableau en entrée avec les données modifier ou non suivante: titre, pays, ville, adresse, cp, description, photo, capacite, categorie)
