@@ -722,8 +722,7 @@ footer{
     margin-top: -3px;
 }
 .menuUserConnected .conteneur ul li a:hover{
-    background-color: #303030;
-    color: #15b5f1;
+    background-color: #0199d2;
 }
 .ficheContenair{
     width: 100%;
@@ -1064,4 +1063,75 @@ footer{
     display: block;
     width: 500px;
     font-family: champagne-limousine, sans-serif;
+}
+
+.traitSeparateurBleu2px{
+    width: 100%;
+    height: 2px;
+    background-color: #15b5f1;
+}
+
+.textInfo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.sousTitre{
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.textCenter{
+    text-align: center;
+}
+
+.formContact{
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formContact label{
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: left;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.formContact input{
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formContact textarea{
+    display: block;
+    min-width: 80%;
+    max-width: 80%;
+    min-height: 100px;
+    max-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnFormContact{
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #15b5f1;
+    border: none;
+}
+
+.btnFormContact:hover{
+    background-color: #0199d2;
 }

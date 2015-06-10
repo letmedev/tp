@@ -14,6 +14,10 @@ $route = array(
     'salle' => array(
         'liste' => 'liste',
         'fiche' => 'fiche'
+    ),
+    'apropos' => array(
+        'cgv' => 'cgv',
+        'contact' => 'contact'
     )
 );
 

@@ -26,10 +26,10 @@
     <nav class="menuUserConnected">
         <div class="conteneur">
             <ul>
-                <li><a href="">Accueil</a></li>
-                <li><a href="">Nos Salle</a></li>
+                <li><a href="<?php echo \controller\superController\superController::URL ?>produit/index">Accueil</a></li>
+                <li><a href="<?php echo \controller\superController\superController::URL ?>salle/liste">Nos Salle</a></li>
                 <li><a href="">Qui sommes-nous</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="<?php echo \controller\superController\superController::URL ?>apropos/contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -61,7 +61,7 @@
                     <p>
                         <a href="">Mentions légales</a>  -
                         <a href="">Plan du site</a>  -
-                        <a href="">Condition générale de vente</a>  -
+                        <a href="<?php echo \controller\superController\superController::URL ?>apropos/cgv">Condition générale de vente</a>  -
                         <a href="">S'inscrire à la newsletter</a>
                     </p>
                 </div>

@@ -129,7 +129,7 @@
                 Par email à: contact@gldev.fr<br />
                 ou via le formulaire de contact
             </p>
-            <a href="" id="btnContact" title="">Formulaire de contact</a>
+            <a href="<?php echo \controller\superController\superController::URL ?>apropos/contact" id="btnContact" title="">Formulaire de contact</a>
         </div>
     </div>
 </div>
