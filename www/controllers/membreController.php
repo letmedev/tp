@@ -147,13 +147,8 @@ namespace controller\membreController{
             session_start();
             session_unset();
             session_destroy();
-
-            $tab = array(
-                'msg' => $this->getMsg(),
-                'directoryView' => 'produit',
-                'fileView' => 'indexView.php'
-            );
-            $this->render($tab);
+            $this->msg .= "<div class='msgWarning'>Vous avez été deconnecté !<br /> A </div>";
+            header('location:'.superController::URL.'produit/index');
         }
 
         //---------- Setters ----------//

@@ -84,7 +84,7 @@ namespace controller\produitController{
                 );
                 $this->render($tab);*/
                 $this->msg .= "<div class='msgWarning'>Vous devez être connectez pour accéder a cette page.</div>";
-                header('location:'.superController::url.'produit/index');
+                header('location:'. \controller\superController\superController::URL .'produit/index');
             }
         }
     }

@@ -63,7 +63,9 @@ namespace model\salleModel{
         public function selectAllSalle(){
             $bdd = $this->getDatabase();
             $req = "SELECT id_salle, titre, pays, adresse, ville, cp, description, photo, capacite, categorie FROM salle";
-            $result = $bdd->query($req)->fetchAll();
+            $requete = $bdd->prepare($req);
+            $requete->execute();
+            $result = $requete->fetchAll();
 
             return $result;
         }

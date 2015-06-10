@@ -10,6 +10,10 @@ $route = array(
         'inscription' => 'inscription',
         'compte' => 'monCompte',
         'deconnexion' => 'deconnexion'
+    ),
+    'salle' => array(
+        'liste' => 'liste',
+        'fiche' => 'fiche'
     )
 );
 
