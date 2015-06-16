@@ -95,6 +95,28 @@ namespace controller\membreController{
             $this->render($tab);
         }
 
+        public function compte(){
+            session_start();
+            if($this->isConnected()){
+                include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'membreModel.php');
+
+                $email = $_SESSION['user']['email'];
+
+                $objMembreModel = new membreModel();
+                $result = $objMembreModel->searchMembre($email);
+
+                $tab = array(
+                    'msg' => $this->getMsg(),
+                    'directoryView' => 'membre',
+                    'fileView' => 'compteView.php',
+                    'membre' => $result
+                );
+                $this->render($tab);
+            } else{
+                header('location:http://lokisalle.gldev.fr/produit/index');
+            }
+        }
+
         public function connexion(){
             session_start();
 
@@ -117,6 +139,7 @@ namespace controller\membreController{
                         $_SESSION = array(
                             'user' => array(
                                 'id_membre' => $result['id_membre'],
+                                'email' => $result['email'],
                                 'pseudo' => $result['pseudo'],
                                 'nom' => $result['nom'],
                                 'prenom' => $result['prenom'],
@@ -125,6 +148,12 @@ namespace controller\membreController{
                                 'cp' => $result['cp'],
                                 'adresse' => $result['adresse'],
                                 'statut' => $result['statut']
+                            ),
+                            'panier' => array(
+                                'id_produit' => array(),
+                                'titre' => array(),
+                                'photo' => array(),
+                                'prix' => array()
                             )
                         );
                         // Ajouter un header vers le profil

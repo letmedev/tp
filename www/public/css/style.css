@@ -707,8 +707,12 @@ footer{
 .menuUserConnected .conteneur ul li{
     list-style-type: none;
     float: left;
-    width: 250px;
+    width: 200px;
     text-align: center;
+}
+
+.menuNotConnected{
+    width: 250px !important;
 }
 
 .menuUserConnected .conteneur ul li a {
@@ -1133,5 +1137,161 @@ footer{
 }
 
 .btnFormContact:hover{
+    background-color: #0199d2;
+}
+
+.tabCompte{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tabCompte tr{
+    width: 500px;
+    height: 30px;
+}
+
+.tabCompteLabel{
+    width: 200px;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.tabCompteInfo{
+    width: 300px;
+}
+
+.btnModifPassword{
+    width: 300px;
+    background-color: #15b5f1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: champagne-limousine, sans-serif;
+    text-decoration: none;
+}
+
+.btnModifPassword:hover{
+    background-color: #0199d2;
+}
+
+.panier .panierTable{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.panier .panierTable tr{
+    display: block;
+    border-bottom: 1px solid #d4d4d4;
+    margin-top: ;
+}
+
+.panier .panierTable tr th{
+    text-align: center;
+    font-family: champagne-limousine, sans-serif;
+    font-weight: 100;
+    font-size: 1.2em;
+}
+
+.panierImg img{
+    width: 120px;
+    border-radius: 5px;
+    border: 1px solid #555555;
+}
+
+.panierTitre{
+    width: 650px;
+    padding-left: 50px;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.panierPrix{
+    width: 80px;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.panierThPhoto{
+    width: 120px;
+}
+
+.panierThTitre{
+    width: 670px;
+}
+
+.panierThPrix{
+    width: 80px;
+}
+
+.panierThSuppr{
+    width: 30px;
+}
+
+.tablePrix{
+    width: 230px;
+    float: right;
+    margin-right: 65px;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.tablePrix tr{
+    display: block;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.tablePrixTr{
+    width: 110px;
+}
+
+.tablePrixTotal{
+    width: 120px;
+}
+
+.btnSupprArticlePanier{
+    width: 30px;
+    height: 39px;
+    background-image: url("../img/trash.png");
+    background-position: 0px 0px;
+    border: none;
+}
+
+.btnSupprArticlePanier:hover{
+    background-position: 0px -39px;
+}
+
+.btnClearPanier{
+    width: 400px;
+    margin-left: 62px;
+    float: left;
+    border: none;
+    background-color: #15b5f1;
+    color: #ffffff;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.4em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btnClearPanier:hover{
+    background-color: #0199d2;
+}
+
+.btnValidPanier{
+    width: 400px;
+    float: left;
+    margin-left: 100px;
+    border: none;
+    background-color: #15b5f1;
+    color: #ffffff;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.4em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btnValidPanier:hover{
     background-color: #0199d2;
 }

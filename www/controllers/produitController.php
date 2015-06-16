@@ -3,6 +3,7 @@ namespace controller\produitController{
 
     use controller\superController\superController;
     use model\avisModel\avisModel;
+    use model\produitModel\produitModel;
 
     include('superController.php');
     class produitController extends superController{
@@ -75,16 +76,74 @@ namespace controller\produitController{
 
                 $this->render($tab);
             } else{
-                /*$this->msg .= "<div class='msgWarning'>Vous devez être connectez pour accéder a cette page.</div>";
+                $this->msg .= "<div class='msgWarning'>Vous devez être connectez pour accéder a cette page.</div>";
+                header('location:'. \controller\superController\superController::URL .'produit/index');
+            }
+        }
+
+        public function panier(){
+            session_start();
+            // Si l'uilisateur est connecté alors je lui donne accès a la page
+            if($this->isConnected()){
+                //Si le formulaire d'une fiche produit (Bouton ajouter au panier) à été activer
+                if(isset($_POST['btnAddPanier']) && !empty($_POST['btnAddPanier'])){
+                    // le contenu de post: $_POST['btnAddPanier'] et $_POST['id_produit']
+                    extract($_POST);
+
+                    // recherche si l'id du produit est present dans le panier
+                    $verifArticle = array_search($id_produit, $_SESSION['panier']['id_produit']);
+
+                    //Si il est present alors on affiche un msg sinon on l'ajoute au panier.
+                    if($verifArticle !== false){
+                        $this->msg .= "<div class='msgWarning'>Ce produit est déjà présent dans votre panier.</div>";
+                    } else{
+                        include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'produitModel.php');
+
+                        $objProduitModel = new produitModel();
+                        $result = $objProduitModel->selectProduitById($id_produit);
+
+                        if($result){
+                            $_SESSION['panier']['id_produit'][] = $result['id_produit'];
+                            $_SESSION['panier']['titre'][] = $result['titre'];
+                            $_SESSION['panier']['photo'][] = $result['photo'];
+                            $_SESSION['panier']['prix'][] = $result['prix'];
+                        } else{
+                            $this->msg .= "<div class='msgWarning'>Un problème est survenue sur le produit demandé.<br />Si le problème perciste contacter le support.</div>";
+                        }
+                    }
+                }
+                // si on appui sur le btn supprimer article d'un produit dans le panier
+                if(isset($_POST['btnSupprArticlePanier'])){
+                    $idArticle = $_POST['id_produit'];
+                    // je confirme que le produit existe bien dans le panier et faisant une rechercher (retourne la postion dans le tableau ou false)
+                    $position = array_search($idArticle, $_SESSION['panier']['id_produit']);
+
+                    if(!$position){ // Si $position renvoi des info autre que false alors on supprimer l'entrée du tableau et on remonte le tout
+                        array_splice($_SESSION['panier']['id_produit'], $position, 1);
+                        array_splice($_SESSION['panier']['titre'], $position, 1);
+                        array_splice($_SESSION['panier']['photo'], $position, 1);
+                        array_splice($_SESSION['panier']['prix'], $position, 1);
+
+                        $this->msg .= "<div class='msgWarning'>Votre article a bien été supprimer.</div>";
+                    } else{
+                        $this->msg .= "<div class='msgalert'>Une erreur est survenue à la suppression de votre produit veuillez ré-essayer</div>";
+                    }
+                }
+
+                if(isset($_POST['ViderLePanier']) && !empty($_POST['ViderLePanier'])){
+                    unset($_SESSION['panier']);
+                    $this->msg .= "<div class='msgWarning'>Votre panier a bien été vider.</div>";
+                }
 
                 $tab = array(
                     'msg' => $this->getMsg(),
                     'directoryView' => 'produit',
-                    'fileView' => 'indexView.php'
+                    'fileView' => 'panierView.php'
                 );
-                $this->render($tab);*/
-                $this->msg .= "<div class='msgWarning'>Vous devez être connectez pour accéder a cette page.</div>";
-                header('location:'. \controller\superController\superController::URL .'produit/index');
+                $this->render($tab);
+            } else { // sinon je le renvoi sur l'accueil
+                $this->msg .= "<div class='msgWarning'>Vous devez être connecté pour accéder au panier.</div>";
+                header('location:'.superController::URL.'produit/index');
             }
         }
     }

@@ -23,7 +23,7 @@ namespace controller\aproposController{
         }
 
         public function contact(){
-
+            session_start();
             if(isset($_POST) && !empty($_POST)){
                 if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['message'])){
                     if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) &&!empty($_POST['message'])){
@@ -81,9 +81,7 @@ namespace controller\aproposController{
                 'directoryView' => 'apropos',
                 'fileView' => 'contactView.php'
             );
-
             $this->render($tab);
         }
-
     }
 }

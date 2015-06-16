@@ -116,7 +116,7 @@ namespace model\membreModel{
 
         public function connectMembre($email, $password){
             $bdd = $this->getDatabase();
-            $req = "SELECT id_membre, pseudo, mdp, nom, prenom, sexe, ville, cp, adresse, statut FROM membre WHERE email = :email";
+            $req = "SELECT id_membre, pseudo, mdp, email, nom, prenom, sexe, ville, cp, adresse, statut FROM membre WHERE email = :email";
             $requete = $bdd->prepare($req);
             $requete->bindValue(':email', $email);
             $requete->execute();

@@ -3,12 +3,13 @@
 $route = array(
     'produit' => array(
         'index' => 'index',
-        'fiche' => 'fiche'
+        'fiche' => 'fiche',
+        'panier' => 'panier'
     ),
     'membre' => array(
         'connexion' => 'connexion',
         'inscription' => 'inscription',
-        'compte' => 'monCompte',
+        'compte' => 'compte',
         'deconnexion' => 'deconnexion'
     ),
     'salle' => array(

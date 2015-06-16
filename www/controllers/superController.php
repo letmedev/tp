@@ -50,6 +50,27 @@ namespace controller\superController{
             }
         }
 
+        public function navUser(){
+            if($this->isConnected()){
+                return '
+                    <ul>
+                        <li><a href="' . \controller\superController\superController::URL . 'produit/index">Accueil</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'salle/liste">Nos Salle</a></li>
+                        <li><a href="">Qui sommes-nous</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'apropos/contact">Contact</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'produit/panier">Panier</a></li>
+                    </ul>';
+            } else{
+                return '
+                    <ul>
+                        <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'produit/index">Accueil</a></li>
+                        <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'salle/liste">Nos Salle</a></li>
+                        <li class="menuNotConnected"><a href="">Qui sommes-nous</a></li>
+                        <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'apropos/contact">Contact</a></li>
+                    </ul>';
+            }
+        }
+
         public function getConnected(){
             return $this->userConnected;
         }

@@ -42,7 +42,7 @@
                     <td class="infoLibelle">Prix: </td>
                     <td class="infoValeur"><?php if(isset($result['prix']) && !empty($result['prix'])){ echo $result['prix']; } ?> € HT</td>
                     <td colspan="2">
-                        <form action="" method="post">
+                        <form action="<?php echo \controller\superController\superController::URL ?>produit/panier" method="post">
                             <input type="hidden" name="id_produit" value="<?php if(isset($result['id_produit']) && !empty($result['id_produit'])){ echo $result['id_produit']; } ?>" />
                             <input type="submit" name="btnAddPanier" value="Ajouter au panier" class="btnAddPanier" />
                         </form>

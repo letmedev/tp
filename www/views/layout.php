@@ -25,12 +25,7 @@
     <div class="trait_separateur_bleu"></div>
     <nav class="menuUserConnected">
         <div class="conteneur">
-            <ul>
-                <li><a href="<?php echo \controller\superController\superController::URL ?>produit/index">Accueil</a></li>
-                <li><a href="<?php echo \controller\superController\superController::URL ?>salle/liste">Nos Salle</a></li>
-                <li><a href="">Qui sommes-nous</a></li>
-                <li><a href="<?php echo \controller\superController\superController::URL ?>apropos/contact">Contact</a></li>
-            </ul>
+            <?php echo $this->navUser(); ?>
         </div>
     </nav>
     <section class="conteneur">
