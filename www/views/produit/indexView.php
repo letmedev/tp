@@ -18,7 +18,7 @@
 
     <p>Trouver la salle idéale pour vos prochaines réunions</p>
     <div class="btnSearchAdd">
-        <a href="" title="chercher une salle" id="btnSearchSalleAccueil"><span>Chercher une salle</span></a>
+        <a href="<?php echo \controller\superController\superController::URL ?>produit/recherche" title="chercher une salle" id="btnSearchSalleAccueil"><span>Chercher une salle</span></a>
         <p>Chercher une salle</p>
     </div>
 

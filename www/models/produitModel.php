@@ -87,6 +87,75 @@ namespace model\produitModel{
                 return 'Aucune salle n\'est disponible !';
             }
         }
+
+        public function searchByName($name){
+            $bdd = $this->getDatabase();
+
+            $req = "SELECT s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description, s.photo,
+            s.capacite, s.categorie, p.id_produit, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat
+            FROM salle s, produit p
+            WHERE s.titre = :nomSalle";
+
+            $requete = $bdd->prepare($req);
+            $requete->bindValue(':nomSalle', $name);
+            $requete->execute();
+            $result = $requete->fetchAll();
+
+            return $result;
+        }
+
+        public function searchByCapacite($capacite){
+            $bdd = $this->getDatabase();
+
+            $req = "SELECT s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description, s.photo,
+            s.capacite, s.categorie, p.id_produit, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat
+            FROM salle s, produit p
+            WHERE s.capacite = :capacite";
+
+            $requete = $bdd->prepare($req);
+            $requete->bindValue(':capacite', $capacite);
+            $requete->execute();
+            $result = $requete->fetchAll();
+
+            return $result;
+        }
+
+        public function searchByVille($ville){
+            $bdd = $this->getDatabase();
+
+            $req = "SELECT s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description, s.photo,
+            s.capacite, s.categorie, p.id_produit, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat
+            FROM salle s, produit p
+            WHERE p.id_salle = s.id_salle
+            AND s.ville = :ville";
+
+            $requete = $bdd->prepare($req);
+            $requete->bindValue(':ville', $ville);
+            $requete->execute();
+            $result = $requete->fetchAll();
+
+            return $result;
+        }
+
+        public function searchProduit($keySearch){
+            if($this->searchByName($keySearch)){
+
+                $salle = $this->searchByName($keySearch);
+                return $salle;
+
+            } elseif($this->searchByVille($keySearch)){
+
+                $salle = $this->searchByVille($keySearch);
+                return $salle;
+            } elseif($this->searchByCapacite($keySearch)){
+
+                $salle = $this->searchByCapacite($keySearch);
+                return $salle;
+            } else{
+                return false;
+            }
+        }
+
     }
 }
 

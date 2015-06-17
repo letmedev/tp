@@ -4,7 +4,8 @@ $route = array(
     'produit' => array(
         'index' => 'index',
         'fiche' => 'fiche',
-        'panier' => 'panier'
+        'panier' => 'panier',
+        'recherche' => 'recherche'
     ),
     'membre' => array(
         'connexion' => 'connexion',

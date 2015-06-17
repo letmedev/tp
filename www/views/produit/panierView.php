@@ -1,6 +1,7 @@
 <div class="panier">
 <h1 class="titrePageSalle">Votre panier</h1>
 <div class="traitSeparateurBleu2px"></div>
+
     <table class="panierTable">
         <tr>
             <th class="panierThPhoto">Photo</th>
@@ -25,21 +26,25 @@
                     echo '    </td>';
                     echo '</tr>';
                 }
+            } else{
+                echo '<tr>';
+                echo '    <td class="titrePageSalle" style="width: 1024px">Votre panier est vide.</td>';
+                echo '</tr>';
             }
         ?>
     </table>
     <table class="tablePrix">
         <tr>
             <td class="tablePrixTotal">Total HT</td>
-            <td class="tablePrixTr">1200€</td>
+            <td class="tablePrixTr"><?php if(isset($total) && !empty($total)){ echo $total; } ?> €</td>
         </tr>
         <tr>
             <td class="tablePrixTotal">T.V.A</td>
-            <td class="tablePrixTr">1200€</td>
+            <td class="tablePrixTr"><?php if(isset($tva) && !empty($tva)){ echo $tva; } ?> €</td>
         </tr>
         <tr>
             <td class="tablePrixTotal">Total TTC</td>
-            <td class="tablePrixTr">1200€</td>
+            <td class="tablePrixTr"><?php if(isset($ttc) && !empty($ttc)){ echo $ttc; } ?> €</td>
         </tr>
     </table>
     <div class="clear"></div>

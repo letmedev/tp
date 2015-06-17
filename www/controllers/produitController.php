@@ -81,6 +81,29 @@ namespace controller\produitController{
             }
         }
 
+        protected function calculMontantTotal(){
+            $prixTotal = 0;
+            for($i = 0; $i < count($_SESSION['panier']['prix']); $i++){
+                $prixTotal += $_SESSION['panier']['prix'][$i];
+            }
+
+            return $prixTotal;
+        }
+
+        protected function calculTva(){
+            $ht = $this->calculMontantTotal();
+            $tva = ($ht * 20) / 100;
+
+            return $tva;
+        }
+
+        protected function calculTTC(){
+            $ttc = $this->calculMontantTotal() + $this->calculTva();
+
+            return $ttc;
+        }
+
+
         public function panier(){
             session_start();
             // Si l'uilisateur est connecté alors je lui donne accès a la page
@@ -113,11 +136,11 @@ namespace controller\produitController{
                     }
                 }
                 // si on appui sur le btn supprimer article d'un produit dans le panier
-                if(isset($_POST['btnSupprArticlePanier'])){
+                if(isset($_POST['btnSupprArticlePanier']) && $_POST['btnSupprArticlePanier'] == ''){
                     $idArticle = $_POST['id_produit'];
                     // je confirme que le produit existe bien dans le panier et faisant une rechercher (retourne la postion dans le tableau ou false)
                     $position = array_search($idArticle, $_SESSION['panier']['id_produit']);
-
+                    echo $position;
                     if(!$position){ // Si $position renvoi des info autre que false alors on supprimer l'entrée du tableau et on remonte le tout
                         array_splice($_SESSION['panier']['id_produit'], $position, 1);
                         array_splice($_SESSION['panier']['titre'], $position, 1);
@@ -126,25 +149,64 @@ namespace controller\produitController{
 
                         $this->msg .= "<div class='msgWarning'>Votre article a bien été supprimer.</div>";
                     } else{
-                        $this->msg .= "<div class='msgalert'>Une erreur est survenue à la suppression de votre produit veuillez ré-essayer</div>";
+                        $this->msg .= "<div class='msgAlert'>Une erreur est survenue à la suppression de votre produit veuillez ré-essayer</div>";
                     }
                 }
 
                 if(isset($_POST['ViderLePanier']) && !empty($_POST['ViderLePanier'])){
-                    unset($_SESSION['panier']);
+                    for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++){
+                        unset($_SESSION['panier']['id_produit'][$i]);
+                        unset($_SESSION['panier']['titre'][$i]);
+                        unset($_SESSION['panier']['photo'][$i]);
+                        unset($_SESSION['panier']['prix'][$i]);
+                    }
                     $this->msg .= "<div class='msgWarning'>Votre panier a bien été vider.</div>";
+                    echo '<pre>';
+                    print_r($_SESSION);
+                    echo '</pre>';
                 }
 
                 $tab = array(
                     'msg' => $this->getMsg(),
                     'directoryView' => 'produit',
-                    'fileView' => 'panierView.php'
+                    'fileView' => 'panierView.php',
+                    'total' => $this->calculMontantTotal(),
+                    'tva' => $this->calculTva(),
+                    'ttc' => $this->calculTTC()
                 );
                 $this->render($tab);
             } else { // sinon je le renvoi sur l'accueil
                 $this->msg .= "<div class='msgWarning'>Vous devez être connecté pour accéder au panier.</div>";
                 header('location:'.superController::URL.'produit/index');
             }
+        }
+
+        public function recherche(){
+            session_start();
+
+            $tab = array(
+                'msg' => $this->getMsg(),
+                'directoryView' => 'produit',
+                'fileView' => 'rechercheView.php',
+                'result' => ''
+            );
+
+            if(isset($_POST['btnFormRechercheProduit']) && !empty($_POST['btnFormRechercheProduit'])){
+                extract($_POST);
+
+                include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'produitModel.php');
+
+                $objModelProduit = new produitModel();
+                $result = $objModelProduit->searchProduit($rechercheProduit);
+
+                if($result){
+                    $tab['result'] = $result;
+                } else{
+                    $tab['result'] = false;
+                }
+            }
+
+            $this->render($tab);
         }
     }
 }
