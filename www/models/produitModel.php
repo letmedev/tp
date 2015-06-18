@@ -94,7 +94,8 @@ namespace model\produitModel{
             $req = "SELECT s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description, s.photo,
             s.capacite, s.categorie, p.id_produit, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat
             FROM salle s, produit p
-            WHERE s.titre = :nomSalle";
+            WHERE p.id_salle = s.id_salle
+            AND s.titre = :nomSalle";
 
             $requete = $bdd->prepare($req);
             $requete->bindValue(':nomSalle', $name);
@@ -110,7 +111,8 @@ namespace model\produitModel{
             $req = "SELECT s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description, s.photo,
             s.capacite, s.categorie, p.id_produit, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat
             FROM salle s, produit p
-            WHERE s.capacite = :capacite";
+            WHERE p.id_salle = s.id_salle
+            AND s.capacite = :capacite";
 
             $requete = $bdd->prepare($req);
             $requete->bindValue(':capacite', $capacite);

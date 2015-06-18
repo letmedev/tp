@@ -156,8 +156,8 @@ namespace controller\membreController{
                                 'prix' => array()
                             )
                         );
-                        // Ajouter un header vers le profil
-                        $this->msg .= "<div class='msgSuccess'>Bienvenue " . $_SESSION['user']['pseudo'] . " !<br /> Pour commencer votre navigation cliquez <a href=\"". \controller\superController\superController::URL ."produit/index\">ici</a></div>";
+                        $this->msg .= "<div class='msgSuccess'>Bienvenue " . $_SESSION['user']['pseudo'] . " !</div>";
+                        header('location:'. superController::URL .'membre/compte');
                     } else{
                         $this->msg .= "<div class='msgAlert'>Login ou mot de passe incorrect !</div>";
                     }

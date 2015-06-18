@@ -54,14 +54,14 @@
             <div class="footerRight">
                 <div class="blocHautFooter">
                     <p>
-                        <a href="">Mentions légales</a>  -
+                        <a href="<?php echo \controller\superController\superController::URL ?>apropos/mentions">Mentions légales</a>  -
                         <a href="">Plan du site</a>  -
                         <a href="<?php echo \controller\superController\superController::URL ?>apropos/cgv">Condition générale de vente</a>  -
                         <a href="">S'inscrire à la newsletter</a>
                     </p>
                 </div>
                 <div class="blocBasFooter">
-                    <p>Copyright © 2015 www.gldev.fr, Tous droits réservés</p>
+                    <p>Copyright © 2015 <a href="www.gldev.fr">www.gldev.fr</a>, Tous droits réservés</p>
                 </div>
             </div>
             <div class="clear"></div>

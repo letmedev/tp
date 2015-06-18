@@ -1,3 +1,17 @@
+<section class="blocBlanc marginTop40">
+    <p class="titreFormInscr">Trouver la salle idéale pour vos prochaines réunions</p>
+    <div class="btnSearchAdd">
+        <a href="<?php echo \controller\superController\superController::URL ?>produit/recherche" title="chercher une salle" id="btnSearchSalleAccueil"><span>Chercher une salle</span></a>
+        <p>Chercher une salle</p>
+    </div>
+
+    <div class="btnSearchAdd">
+        <a href="" title="ajouter une salle" id="btnAddSalleAccueil"><span>Ajouter une salle</span></a>
+        <p>Louer votre salle</p>
+    </div>
+    <div class="clear"></div>
+</section>
+<div class="traitSeparateurBleu2px marginTop40"></div>
 <section class="contenairList">
     <h1 class="titrePageSalle">Voici nos salles</h1>
     <?php
@@ -22,11 +36,10 @@
             echo "        </table>";
             echo "    </div>";
             echo "    <div class='btnBlocSalle'>";
-            echo "      <a href='' class='btnSalle'>En savoir +</a>";
+            echo "      <a href='".\controller\superController\superController::URL."salle/fiche/".$valeur['id_salle']."' class='btnSalle'>En savoir +</a>";
             echo "    </div>";
             echo "</div>";
         }
     ?>
-
     <div class="clear"></div>
 </section>

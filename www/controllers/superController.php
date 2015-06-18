@@ -56,7 +56,7 @@ namespace controller\superController{
                     <ul>
                         <li><a href="' . \controller\superController\superController::URL . 'produit/index">Accueil</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'salle/liste">Nos Salle</a></li>
-                        <li><a href="">Qui sommes-nous</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'apropos/identite">Qui sommes-nous</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'apropos/contact">Contact</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'produit/panier">Panier</a></li>
                     </ul>';
@@ -65,7 +65,7 @@ namespace controller\superController{
                     <ul>
                         <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'produit/index">Accueil</a></li>
                         <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'salle/liste">Nos Salle</a></li>
-                        <li class="menuNotConnected"><a href="">Qui sommes-nous</a></li>
+                        <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'apropos/identite  ">Qui sommes-nous</a></li>
                         <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'apropos/contact">Contact</a></li>
                     </ul>';
             }

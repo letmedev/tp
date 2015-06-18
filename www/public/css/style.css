@@ -573,7 +573,12 @@ footer{
     color: #b0b0b0;
     text-decoration: none;
     font-family: champagne-limousine, sans-serif;
+}
 
+.blocBasFooter a{
+    color: #b0b0b0;
+    text-decoration: none;
+    font-family: champagne-limousine, sans-serif;
 }
 
 .blocBasFooter{
@@ -1009,7 +1014,7 @@ footer{
 
 .btnSalle{
     display: block;
-    width: 101%;
+    width: 182px;
     margin-left: -1px;
     font-family: champagne-limousine, sans-serif;
     font-size: 1.2em;
@@ -1339,4 +1344,12 @@ footer{
 
 .btnFormRechercheProduit:hover{
     background-color: #0199d2;
+}
+
+.tabMentionHebergeur{
+    font-family: champagne-limousine, sans-serif;
+}
+
+.tabMentionHebergeur tr td{
+    width: 130px;
 }

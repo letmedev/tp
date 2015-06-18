@@ -83,5 +83,27 @@ namespace controller\aproposController{
             );
             $this->render($tab);
         }
+
+        public function identite(){
+            session_start();
+
+            $tab = array(
+                'directoryView' => 'apropos',
+                'fileView' => 'identiteView.php'
+            );
+
+            $this->render($tab);
+        }
+
+        public function mentions(){
+            session_start();
+
+            $tab = array(
+                'directoryView' => 'apropos',
+                'fileView' => 'mentionsView.php'
+            );
+
+            $this->render($tab);
+        }
     }
 }

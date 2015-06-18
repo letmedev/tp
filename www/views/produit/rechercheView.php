@@ -12,7 +12,7 @@
 
     <?php
         if(!empty($result)){
-            if($result !== false){
+            if($result !== 0){
                 echo "<div class='traitSeparateurBleu2px marginTop40'></div>";
                 echo '<h2 class="titrePageSalle">Voici le resultat de votre recherche</h2>';
                 foreach($result as $valeur){
@@ -36,11 +36,12 @@
                     echo "        </table>";
                     echo "    </div>";
                     echo "    <div class='btnBlocSalle'>";
-                    echo "      <a href='' class='btnSalle'>En savoir +</a>";
+                    echo "      <a href='". \controller\superController\superController::URL ."produit/fiche/" . $valeur['id_produit'] . "' class='btnSalle'>En savoir +</a>";
                     echo "    </div>";
                     echo "</div>";
                 }
-            } else{
+            } elseif($result == 0){
+                echo "<div class='traitSeparateurBleu2px marginTop40'></div>";
                 echo "<h2 class='titrePageSalle'>Aucun élément n'as été trouver !</h2>";
             }
         }

@@ -19,7 +19,9 @@ $route = array(
     ),
     'apropos' => array(
         'cgv' => 'cgv',
-        'contact' => 'contact'
+        'contact' => 'contact',
+        'identite' => 'identite',
+        'mentions' => 'mentions'
     )
 );
 

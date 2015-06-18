@@ -188,7 +188,7 @@ namespace controller\produitController{
                 'msg' => $this->getMsg(),
                 'directoryView' => 'produit',
                 'fileView' => 'rechercheView.php',
-                'result' => ''
+                'result' => 0
             );
 
             if(isset($_POST['btnFormRechercheProduit']) && !empty($_POST['btnFormRechercheProduit'])){
@@ -202,7 +202,7 @@ namespace controller\produitController{
                 if($result){
                     $tab['result'] = $result;
                 } else{
-                    $tab['result'] = false;
+                    $tab['result'] = 0;
                 }
             }
 
