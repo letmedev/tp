@@ -22,6 +22,9 @@ $route = array(
         'contact' => 'contact',
         'identite' => 'identite',
         'mentions' => 'mentions'
+    ),
+    'newsletter' => array(
+        'inscription' => 'inscription'
     )
 );
 

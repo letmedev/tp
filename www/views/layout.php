@@ -57,7 +57,7 @@
                         <a href="<?php echo \controller\superController\superController::URL ?>apropos/mentions">Mentions légales</a>  -
                         <a href="">Plan du site</a>  -
                         <a href="<?php echo \controller\superController\superController::URL ?>apropos/cgv">Condition générale de vente</a>  -
-                        <a href="">S'inscrire à la newsletter</a>
+                        <a href="<?php echo \controller\superController\superController::URL ?>newsletter/inscription">S'inscrire à la newsletter</a>
                     </p>
                 </div>
                 <div class="blocBasFooter">

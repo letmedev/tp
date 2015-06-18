@@ -1353,3 +1353,50 @@ footer{
 .tabMentionHebergeur tr td{
     width: 130px;
 }
+
+.formInscrNews{
+    display: block;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formInscrNews label{
+    display: block;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: left;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.2em;
+}
+
+.inputInscrNews{
+    display: block;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: 1em;
+    color: grey;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+.btnValidInscrNews{
+    display: block;
+    width: 507px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.2em;
+    color: #ffffff;
+    background-color: #15b5f1;
+}
+
+.btnValidInscrNews:hover{
+    background-color: #0199d2;
+}

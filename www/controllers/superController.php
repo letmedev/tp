@@ -55,7 +55,7 @@ namespace controller\superController{
                 return '
                     <ul>
                         <li><a href="' . \controller\superController\superController::URL . 'produit/index">Accueil</a></li>
-                        <li><a href="' . \controller\superController\superController::URL . 'salle/liste">Nos Salle</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'salle/liste">Nos Salles</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'apropos/identite">Qui sommes-nous</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'apropos/contact">Contact</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'produit/panier">Panier</a></li>
@@ -64,7 +64,7 @@ namespace controller\superController{
                 return '
                     <ul>
                         <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'produit/index">Accueil</a></li>
-                        <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'salle/liste">Nos Salle</a></li>
+                        <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'salle/liste">Nos Salles</a></li>
                         <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'apropos/identite  ">Qui sommes-nous</a></li>
                         <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'apropos/contact">Contact</a></li>
                     </ul>';
