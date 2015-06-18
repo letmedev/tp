@@ -203,6 +203,23 @@ namespace model\salleModel{
                 return $this->getMsg();
             }
         }
+
+        public function searchProduitByIdSalle($idSalle){
+            $bdd = $this->getDatabase();
+
+            $req = "SELECT s.id_salle, s.titre, s.pays, s.ville, s.adresse, s.cp, s.description, s.photo,
+            s.capacite, s.categorie, p.id_produit, p.date_arrivee, p.date_depart, p.id_promo, p.prix, p.etat
+            FROM salle s, produit p
+            WHERE s.id_salle = :idSalle
+            AND p.id_salle = s.id_salle";
+
+            $requete = $bdd->prepare($req);
+            $requete->bindValue(':idSalle', $idSalle);
+            $requete->execute();
+            $result = $requete->fetchAll();
+
+            return $result;
+        }
     }
 }
 

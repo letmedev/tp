@@ -32,11 +32,14 @@ namespace controller\salleController{
             $objSalleModel = new salleModel();
             $result = $objSalleModel->selectSalleById($id);
 
+            $resultProduit = $objSalleModel->searchProduitByIdSalle($id);
+
             $tab = array(
                 'msg' => $this->getMsg(),
                 'directoryView' => 'salle',
                 'fileView' => 'ficheSalleView.php',
-                'salle' => $result
+                'salle' => $result,
+                'produit' => $resultProduit
             );
 
             $this->render($tab);

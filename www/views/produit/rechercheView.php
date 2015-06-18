@@ -33,6 +33,14 @@
                     echo "                <td>Capacité:</td>";
                     echo "                <td>" . $valeur['capacite'] . " personnes</td>";
                     echo "            </tr>";
+                    echo "            <tr>";
+                    echo "                <td>Du:</td>";
+                    echo "                <td>" . $valeur['date_arrivee'] . "</td>";
+                    echo "            </tr>";
+                    echo "            <tr>";
+                    echo "                <td>Au:</td>";
+                    echo "                <td>" . $valeur['date_depart'] . "</td>";
+                    echo "            </tr>";
                     echo "        </table>";
                     echo "    </div>";
                     echo "    <div class='btnBlocSalle'>";

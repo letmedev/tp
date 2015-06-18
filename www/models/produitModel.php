@@ -157,7 +157,6 @@ namespace model\produitModel{
                 return false;
             }
         }
-
     }
 }
 

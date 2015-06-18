@@ -190,15 +190,16 @@ namespace controller\produitController{
                 'fileView' => 'rechercheView.php',
                 'result' => 0
             );
-
+            // si le formulaire de recherche est activer
             if(isset($_POST['btnFormRechercheProduit']) && !empty($_POST['btnFormRechercheProduit'])){
                 extract($_POST);
-
+                // J'inclut le model qui va bien
                 include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'produitModel.php');
 
+                // Je construit l'obet et utilise la méthode de recherche generale
                 $objModelProduit = new produitModel();
                 $result = $objModelProduit->searchProduit($rechercheProduit);
-
+                // si un resultat est renvoyé alors le le stock dans le tableau qui part dans le render() sinon je renvoi 0
                 if($result){
                     $tab['result'] = $result;
                 } else{
