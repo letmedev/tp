@@ -33,13 +33,29 @@ namespace controller\salleController{
             $result = $objSalleModel->selectSalleById($id);
 
             $resultProduit = $objSalleModel->searchProduitByIdSalle($id);
+            $resultAvis = $objSalleModel->selectAvisBySalle($id);
+
+            if(isset($_POST['btnAvis']) && $_POST['btnAvis'] == 'Valider'){
+                $tabAvis = array(
+                    'id_membre' => $_SESSION['user']['id_membre'],
+                    'id_salle' => $_POST['id_salle'],
+                    'titre' => $_POST['titre'],
+                    'commentaire' => $_POST['commentaire'],
+                    'note' => $_POST['note']
+                );
+
+                $objSalleModel->addAvis($tabAvis);
+            }
+
 
             $tab = array(
                 'msg' => $this->getMsg(),
                 'directoryView' => 'salle',
                 'fileView' => 'ficheSalleView.php',
                 'salle' => $result,
-                'produit' => $resultProduit
+                'produit' => $resultProduit,
+                'avis' => $resultAvis,
+                'id_salle' => $id
             );
 
             $this->render($tab);

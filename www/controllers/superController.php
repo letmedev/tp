@@ -36,7 +36,7 @@ namespace controller\superController{
                 return $this->userIsAdmin;
             } else {
                 $this->userIsAdmin = false;
-                return 'Vous n\êtes pas administrateur !';
+                return $this->userIsAdmin;
             }
         }
 
@@ -68,6 +68,23 @@ namespace controller\superController{
                         <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'apropos/identite  ">Qui sommes-nous</a></li>
                         <li class="menuNotConnected"><a href="' . \controller\superController\superController::URL . 'apropos/contact">Contact</a></li>
                     </ul>';
+            }
+        }
+        // barre de navigation, si on est commande on a le menu de gestin du site sinon on a le menu classique authentifier avec panier
+        // ou non authentifié sans panier
+        public function navAdmin(){
+            if($this->isConnected() && $this->isAdmin()){
+                return '
+                    <ul>
+                        <li><a href="' . \controller\superController\superController::URL . 'commande/commande">Gestion Commande</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'commande/salle">Gestion Salle</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'commande/produit">Gestion Produit</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'commande/user">Gestion Utilisateur</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'commande/avis">Gestion Avis</a></li>
+                    </ul>
+                ';
+            } else{
+                return $this->navUser();
             }
         }
 

@@ -83,8 +83,11 @@ namespace controller\produitController{
 
         protected function calculMontantTotal(){
             $prixTotal = 0;
-            for($i = 0; $i < count($_SESSION['panier']['prix']); $i++){
-                $prixTotal += $_SESSION['panier']['prix'][$i];
+
+            if(isset($_SESSION['panier']['prix']) && !empty($_SESSION['panier']['prix'])){
+                for($i = 0; $i < count($_SESSION['panier']['prix']); $i++){
+                    $prixTotal += $_SESSION['panier']['prix'][$i];
+                }
             }
 
             return $prixTotal;
@@ -161,9 +164,6 @@ namespace controller\produitController{
                         unset($_SESSION['panier']['prix'][$i]);
                     }
                     $this->msg .= "<div class='msgWarning'>Votre panier a bien été vider.</div>";
-                    echo '<pre>';
-                    print_r($_SESSION);
-                    echo '</pre>';
                 }
 
                 $tab = array(

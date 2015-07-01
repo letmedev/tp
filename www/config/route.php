@@ -25,6 +25,9 @@ $route = array(
     ),
     'newsletter' => array(
         'inscription' => 'inscription'
+    ),
+    'commande' => array(
+        'validationPanier' => 'validationPanier'
     )
 );
 

@@ -52,7 +52,8 @@
         <form action="<?php echo \controller\superController\superController::URL ?>produit/panier" method="post">
             <input type="submit" name="ViderLePanier" value="Vider le panier" class="btnClearPanier" />
         </form>
-        <form action="<?php echo \controller\superController\superController::URL ?>commande/paiement">
+        <form action="<?php echo \controller\superController\superController::URL ?>commande/validationPanier" method="post">
+            <input type="hidden" name="prix" value="<?php if(isset($ttc) && !empty($ttc)){ echo $ttc; } ?>"/>
             <input type="submit" name="commander" value="Valider la commande" class="btnValidPanier" />
         </form>
         <div class="clear"></div>

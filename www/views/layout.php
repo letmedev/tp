@@ -25,7 +25,7 @@
     <div class="trait_separateur_bleu"></div>
     <nav class="menuUserConnected">
         <div class="conteneur">
-            <?php echo $this->navUser(); ?>
+            <?php echo $this->navAdmin(); ?>
         </div>
     </nav>
     <section class="conteneur">
