@@ -1400,3 +1400,65 @@ footer{
 .btnValidInscrNews:hover{
     background-color: #0199d2;
 }
+
+.tabCommande{
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.tabCommandeLigne{
+    display: block;
+    height: 30px;
+    border-bottom: 1px solid grey;
+    font-family: champagne-limousine, sans-serif;
+}
+
+.tabCommandeCellNumero{
+    width: 150px;
+}
+
+.tabCommandeCellMontant{
+    width: 150px;
+}
+
+.tabCommandeCellClient{
+    width: 150px;
+}
+
+.tabCommandeCellDate{
+    width: 200px;
+}
+
+.item{
+    width: 100px;
+}
+
+.btnAfficherCommande{
+    width: 90px;
+    height: 30px;
+    background-color: #15b5f1;
+    font-family: champagne-limousine;
+    color: #ffffff;
+    border: none;
+    font-size: 1.2em;
+}
+
+.btnAfficherCommande:hover{
+    background-color: #0199d2;
+}
+
+.btnSupprCommande{
+    width: 90px;
+    height: 30px;
+    background-color: #E62922;
+    font-family: champagne-limousine;
+    color: #ffffff;
+    border: none;
+    font-size: 1.2em;
+}
+
+.btnSupprCommande:hover{
+    background-color: #B2312D;
+}

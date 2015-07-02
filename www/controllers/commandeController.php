@@ -55,12 +55,31 @@ namespace controller\commandeController{
         }
 
         public function affichageCommande(){
-            $tab = array(
-                'directoryView' => 'commande',
-                'fileView' => 'affichageCommandeView.php'
-            );
+            session_start();
 
-            $this->render($tab);
+            if($this->isConnected()){
+                if($this->isAdmin()){
+                    include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'commandeModel.php');
+
+                    $objCommandeModel = new commandeModel();
+                    $resultListeCommande = $objCommandeModel->selectAllCommande();
+
+
+                    $tab = array(
+                        'directoryView' => 'commande',
+                        'fileView' => 'affichageCommandeView.php',
+                        'liste' => $resultListeCommande
+                    );
+
+                    $this->render($tab);
+                }
+            } else{
+                header('location:'. superController::URL .'produit/index');
+            }
+        }
+
+        public function bonCommande(){
+
         }
     }
 

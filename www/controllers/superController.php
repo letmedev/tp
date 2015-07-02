@@ -76,7 +76,7 @@ namespace controller\superController{
             if($this->isConnected() && $this->isAdmin()){
                 return '
                     <ul>
-                        <li><a href="' . \controller\superController\superController::URL . 'commande/commande">Gestion Commande</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'commande/affichageCommande">Gestion Commande</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'commande/salle">Gestion Salle</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'commande/produit">Gestion Produit</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'commande/user">Gestion Utilisateur</a></li>
