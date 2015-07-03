@@ -18,15 +18,15 @@
             echo '    <td class="tabCommandeCellClient">' . $liste[$i]['id_membre'] . '</td>';
             echo '    <td class="tabCommandeCellDate">' . $liste[$i]['date_commande'] . '</td>';
             echo '    <td class="item">';
-            echo '        <form metdod="post" action="' . \controller\superController\superController::URL . 'commande/bonCommande/' . $liste[$i]['id_commande'] . '" >';
+            echo '        <form method="post" action="' . \controller\superController\superController::URL . 'commande/bonCommande/' . $liste[$i]['id_commande'] . '" >';
             echo '            <input type="hidden" value="' . $liste[$i]['id_commande'] . '" name="idCommande" />';
-            echo '            <input type="submit" name="btnAfficherCommande" value="Afficher" class="btnAfficherCommande"';
+            echo '            <input type="submit" name="btnAfficherCommande" value="Afficher" class="btnAfficherCommande" >';
             echo '        </form>';
             echo '    </td>';
             echo '    <td class="item">';
-            echo '        <form action="post" action="' . \controller\superController\superController::URL . 'commande/affichageCommande/' . $liste[$i]['id_commande'] . '">';
-            echo '            <input type="hidden" value="' . $liste[$i]['id_commande'] . '" name="idCommande" />';
-            echo '            <input type="submit" name="btnSupprCommande" value="Supprimer" class="btnSupprCommande"';
+            echo '        <form action="' . \controller\superController\superController::URL . 'commande/affichageCommande/' . $liste[$i]['id_commande'] . '" method="post">';
+            echo '            <input type="hidden" value="' . $liste[$i]['id_commande'] . '" name="id_commande" />';
+            echo '            <input type="submit" name="btnSupprCommande" value="Supprimer" class="btnSupprCommande" />';
             echo '        </form>';
             echo '    </td>';
             echo '</tr>';
@@ -34,3 +34,5 @@
     ?>
 
 </table>
+
+<form action="" ></form>

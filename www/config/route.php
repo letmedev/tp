@@ -28,7 +28,8 @@ $route = array(
     ),
     'commande' => array(
         'validationPanier' => 'validationPanier',
-        'affichageCommande' => 'affichageCommande'
+        'affichageCommande' => 'affichageCommande',
+        'bonCommande' => 'bonCommande'
     )
 );
 

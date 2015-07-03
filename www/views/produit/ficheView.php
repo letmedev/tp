@@ -48,6 +48,15 @@
                         </form>
                     </td>
                 </tr>
+                <tr>
+                    <?php
+                        if($result['etat'] == 0){
+                            echo '<td class="infoDispo"><img src="' . \controller\superController\superController::URLPUBLIC . 'img/on.png"/> Disponible</td>';
+                        } else{
+                            echo '<td class="infoDispo"><img src="' . \controller\superController\superController::URLPUBLIC . 'img/off.png"/> Indisponible</td>';
+                        }
+                    ?>
+                </tr>
             </table>
         </div>
     </div>

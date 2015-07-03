@@ -1462,3 +1462,91 @@ footer{
 .btnSupprCommande:hover{
     background-color: #B2312D;
 }
+
+.tableBonCommande{
+    width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.tableBonCommandeLigne{
+    display: block;
+    font-size: 1.2em;
+    font-family: champagne-limousine, sans-serif;
+    border-bottom: 1px solid grey;
+}
+
+.tableBonCommandePhoto{
+    width: 150px;
+    text-align: center;
+}
+
+.tableBonCommandePhoto img{
+    width: 150px;
+    margin-left: auto;
+    marogin-right:auto;
+    border-radius: 5px;
+}
+
+.tableBonCommandeDesignation{
+    width: 350px;
+    text-align: center;
+}
+
+.tableBonCommandeDateArrivee{
+    width: 150px;
+    text-align: center;
+}
+
+.tableBonCommandeDateDepart{
+    width: 150px;
+    text-align: center;
+}
+
+.tableBonCommandeTarif{
+    width: 150px;
+    text-align: center;
+}
+
+.tableBonCommandeLigneTotal{
+    display: block;
+    width: 200px;
+    float: right;
+    margin-right: 0px;
+}
+
+.tableBonCommandeTotal{
+    width: 100px;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.4em;
+}
+
+.tableBonCommandePrix{
+    width: 100px;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1.4em;
+}
+
+.btnReserverProduit{
+    display: block;
+    width: 400px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    background-color: #15b5f1;
+    color: #ffffff;
+    font-family: champagne-limousine, sans-serif;
+    text-align: center;
+    border: none;
+    font-size: 1.4em;
+}
+
+.btnReserverProduit:hover{
+    background-color: #0199d2;
+}
+
+.infoDispo{
+    width: 150px;
+}

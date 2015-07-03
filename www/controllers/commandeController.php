@@ -61,6 +61,14 @@ namespace controller\commandeController{
                 if($this->isAdmin()){
                     include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'commandeModel.php');
 
+
+                    if(isset($_POST['btnSupprCommande']) && $_POST['btnSupprCommande'] == 'Supprimer'){
+                        $objCommandeModelBis = new commandeModel();
+                        $objCommandeModelBis->removeCommande($_POST['id_commande']);
+
+                        $this->msg .= "<div>Votre commande à bien été supprimer</div>";
+                    }
+
                     $objCommandeModel = new commandeModel();
                     $resultListeCommande = $objCommandeModel->selectAllCommande();
 
@@ -78,8 +86,33 @@ namespace controller\commandeController{
             }
         }
 
-        public function bonCommande(){
+        public function bonCommande($id){
+            session_start();
 
+            include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'commandeModel.php');
+
+            $objCommandeModel = new commandeModel();
+            $result = $objCommandeModel->selectDetailCommande($id);
+
+            if(isset($_POST['reserverProduit']) && $_POST['reserverProduit'] == 'Confirmer la reservation'){
+                echo '<pre>';
+                print_r($_POST);
+                echo '</pre>';
+
+                for($i = 0; $i < count($_POST); $i++){
+                    $objCommandeModel->validReservationProduit($_POST['id_produit' . $i]);
+                }
+
+                $this->msg .= "<div class='msgSuccess'>Votre réservation à bien été prise en compte !</div>";
+            }
+
+            $tab = array(
+                'directoryView' => 'commande',
+                'fileView' => 'bonCommandeView.php',
+                'result' => $result
+            );
+
+            $this->render($tab);
         }
     }
 
