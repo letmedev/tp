@@ -77,10 +77,8 @@ namespace controller\superController{
                 return '
                     <ul>
                         <li><a href="' . \controller\superController\superController::URL . 'commande/affichageCommande">Gestion Commande</a></li>
-                        <li><a href="' . \controller\superController\superController::URL . 'commande/salle">Gestion Salle</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'salle/gestionSalle">Gestion Salle</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'commande/produit">Gestion Produit</a></li>
-                        <li><a href="' . \controller\superController\superController::URL . 'commande/user">Gestion Utilisateur</a></li>
-                        <li><a href="' . \controller\superController\superController::URL . 'commande/avis">Gestion Avis</a></li>
                     </ul>
                 ';
             } else{

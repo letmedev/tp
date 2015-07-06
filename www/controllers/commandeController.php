@@ -95,9 +95,6 @@ namespace controller\commandeController{
             $result = $objCommandeModel->selectDetailCommande($id);
 
             if(isset($_POST['reserverProduit']) && $_POST['reserverProduit'] == 'Confirmer la reservation'){
-                echo '<pre>';
-                print_r($_POST);
-                echo '</pre>';
 
                 for($i = 0; $i < count($_POST); $i++){
                     $objCommandeModel->validReservationProduit($_POST['id_produit' . $i]);

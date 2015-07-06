@@ -60,6 +60,54 @@ namespace controller\salleController{
 
             $this->render($tab);
         }
+
+        public function gestionSalle(){
+            session_start();
+
+            if($this->isConnected()){
+                if($this->isAdmin()){
+                    $tab = array(
+                        'msg' => $this->getMsg(),
+                        'directoryView' => 'salle',
+                        'fileView' => 'gestionSalleView.php'
+                    );
+
+                    $this->render($tab);
+                }
+            } else{
+                header('location' . superController::URL . 'produit/index');
+            }
+
+
+        }
+
+        public function affichageListe(){
+            session_start();
+
+            if($this->isConnected()){
+                if($this->isAdmin()){
+                    include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'salleModel.php');
+
+                    $objSalleModel = new salleModel();
+                    $result = $objSalleModel->selectAllSalle();
+
+                    if(isset($_POST['btnSupprSalle']) && $_POST['btnSupprSalle'] == 'Supprimer'){
+                        $objSalleModel->deleteSalleById($_POST['id_salle']);
+
+                        $this->msg .= "<div class='msgSuccess'>La salle a bien été supprimer</div>";
+                    }
+
+                    $tab = array(
+                        'msg' => $this->getMsg(),
+                        'directoryView' => 'salle',
+                        'fileView' => 'listeSalleAdminView.php',
+                        'result' => $result
+                    );
+
+                    $this->render($tab);
+                }
+            }
+        }
     }
 }
 

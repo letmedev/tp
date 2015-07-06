@@ -15,7 +15,9 @@ $route = array(
     ),
     'salle' => array(
         'liste' => 'liste',
-        'fiche' => 'fiche'
+        'fiche' => 'fiche',
+        'gestionSalle' => 'gestionSalle',
+        'affichageListe' => 'affichageListe'
     ),
     'apropos' => array(
         'cgv' => 'cgv',

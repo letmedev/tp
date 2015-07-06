@@ -136,12 +136,10 @@ namespace model\salleModel{
                 $requete->bindValue(':id_salle', $id);
                 $requete->execute();
 
-                $this->msg .= 'La salle ' . $nom . ' a bien été supprimer !';
-                echo $this->getMsg();
+                return true;
 
             } else {
-                $this->msg .= 'La salle ' . $nom . ' n\'existe pas !';
-                echo $this->getMsg();
+                return false;
             }
 
         }
@@ -161,7 +159,7 @@ namespace model\salleModel{
             extract($tab);
 
             $bdd = $this->getDatabase();
-            $req = "INSERT INTO avis(id_membre, id_salle, titre, commentaire, note, date_avis) VALUES(:id_membre, :id_salle, :titre, :commentaire, :note, NOW())";
+            $req = "INSERT INTO avis(id_membre, id_salle, titre, commentaire, note, date_avis) VALUES(x, :id_salle, :titre, :commentaire, :note, NOW())";
             $requete = $bdd->prepare($req);
             $requete->bindValue(':id_membre', $id_membre);
             $requete->bindValue(':id_salle', $id_salle);
@@ -244,6 +242,16 @@ namespace model\salleModel{
             $result = $requete->fetchAll();
 
             return $result;
+        }
+
+        public function deleteSalleById($id){
+            $bdd = $this->getDatabase();
+
+            $req = "DELETE FROM salle WHERE id_salle= :id_salle ";
+            $requete = $bdd->prepare($req);
+            $requete->bindValue(':id_salle', $id);
+            $requete->execute();
+
         }
     }
 }
