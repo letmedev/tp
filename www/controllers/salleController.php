@@ -75,7 +75,7 @@ namespace controller\salleController{
                     $this->render($tab);
                 }
             } else{
-                header('location' . superController::URL . 'produit/index');
+                header('location:' . superController::URL . 'produit/index');
             }
 
 
@@ -106,6 +106,75 @@ namespace controller\salleController{
 
                     $this->render($tab);
                 }
+            }
+        }
+
+        public function ajout(){
+            session_start();
+            if($this->isConnected()){
+                if($this->isAdmin()){
+
+                    if(isset($_POST['btnAddSalle']) && $_POST['btnAddSalle'] == 'Enregistrer'){
+                        include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'salleModel.php');
+                        // Traitement de l'image
+                        $photo = '';
+                        $photoUrl = '';
+                        if(isset($_FILES['photo']['name'])){
+                            $extension = strrchr($_FILES['photo']['name'], '.'); // permet de retourner le texte contenu après le "."
+                            $extension = strtolower(substr($extension, 1));
+                            // Nous transformons au cas où la chaine en minuscule grace à strtolower()
+                            // Nous coupons le "." grace à substr()
+                            $tab_extension_valide = array("gif", "jpg", "jpeg", "png"); // nous préparons un tableau ARRAY qui contient les extension que l'on veut autoriser
+
+                            $verif_extension = in_array($extension, $tab_extension_valide); // nous observons si 'lextension (fournie en premier argument) est présente dans le tableau array (fourni en 2 eme argument)
+
+                            if($verif_extension){
+                                $nom_photo = $_POST['nomSalle'] . '_' . $_FILES['photo']['name'];// on rajoute la reference sur le nom de la photo dans le cas où deux images auraient le même nom, il y a un risque d'écraser les anciennes photos
+                                $photoDossier = "../public/photo_salle/$nom_photo";
+                                $photoUrl = superController::URLPUBLIC . 'photo_salle/' . $nom_photo;
+                                // chemin pour permettre l'enregistrement dans le dossier du FICHIER de la photo. Cela va servir à la fonction copy()
+                                copy($_FILES['photo']['tmp_name'], $photoDossier); // copy() permet de copier un fichier depuis un endroit (ici le dossier temporaire du serveur) vers un autre endroit donné en deuxieme argument.
+                            }
+                        }
+
+                        if(!empty($_POST['titre']) || !empty($_POST['adresse']) || !empty($_POST['cp']) || !empty($_POST['ville']) || !empty($_POST['pays'])
+                        || !empty($_POST['description']) || !empty($_POST['capacite']) || !empty($_POST['categorie'])){
+                            $data = array(
+                                'titre' => $_POST['nomSalle'],
+                                'adresse' => $_POST['adresse'],
+                                'cp' => $_POST['cp'],
+                                'ville' => $_POST['ville'],
+                                'pays' => $_POST['pays'],
+                                'description' => $_POST['description'],
+                                'photo' => $photoUrl,
+                                'capacite' => $_POST['capacite'],
+                                'categorie' => $_POST['categorie']
+                            );
+
+                            $objSalleModel = new salleModel();
+                            $result = $objSalleModel->addSalle($data);
+
+                            if($result){
+                                $this->msg .= "<div class='msgSuccess'>La salle a bien été enregistrer !</div>";
+                            } else{
+                                $this->msg .= "<div class='msgAlert'>Une erreur est survenue.</div>";
+                            }
+                        } else {
+                            $this->msg .= "<div class='msgAlert'>Tous les champs doivent être saisie !</div>";
+                        }
+
+                    }
+
+                    $tab = array(
+                        'msg' => $this->getMsg(),
+                        'directoryView' => 'salle',
+                        'fileView' => 'ajoutSalleAdminView.php'
+                    );
+
+                    $this->render($tab);
+                }
+            } else{
+                header('location:' . superController::URL . 'produit/index');
             }
         }
     }

@@ -37,12 +37,10 @@ namespace model\salleModel{
                 $reqInsert->bindValue(':categorie', $categorie);
                 $reqInsert->execute();
 
-                $this->msg .= 'Votre salle a bien été enregistrer.';
-                echo $this->getMsg();
+                return true;
             } else{
                 // Sinon nous affichon un msg indiquant que la salle existent déja.
-                $this->msg .= 'La salle que vous souhaitez enregistrer existe déjà en base de données.';
-                echo $this->getMsg();
+                return false;
             }
         }
 

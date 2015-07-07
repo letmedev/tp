@@ -7,7 +7,7 @@
     </div>
 
     <div class="btnSearchAdd">
-        <a href="" title="ajouter une salle" id="btnAddSalleAccueil"><span>Ajouter une salle</span></a>
+        <a href="<?php echo \controller\superController\superController::URL ?>salle/ajout" title="ajouter une salle" id="btnAddSalleAccueil"><span>Ajouter une salle</span></a>
         <p>Ajouter une salle</p>
     </div>
     <div class="clear"></div>

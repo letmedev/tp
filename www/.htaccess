@@ -1,3 +1,0 @@
-Options +FollowSymlinks
-RewriteEngine on
-RewriteRule ^http://localhost/tp/www/routeur.php/ http://localhost/tp/www/[L]
