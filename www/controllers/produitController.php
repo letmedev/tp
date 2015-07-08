@@ -209,6 +209,65 @@ namespace controller\produitController{
 
             $this->render($tab);
         }
+
+        public function gestionProduit(){
+            session_start();
+            if($this->isConnected()){
+                if($this->isAdmin()){
+                    $tab = array(
+                        'directoryView' => 'produit',
+                        'fileView' => 'gestionProduitView.php'
+                    );
+
+                    $this->render($tab);
+                }
+            } else{
+                header('location:' . superController::URL . 'produit/index');
+            }
+        }
+
+        public function affichage(){
+            session_start();
+            if($this->isConnected()){
+                if($this->isAdmin()){
+
+                    include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'produitModel.php');
+
+                    $objProduitModel = new produitModel();
+                    $result = $objProduitModel->selectAllProduit();
+
+                    $tab = array(
+                        'directoryView' => 'produit',
+                        'fileView' => 'affichageListeProduitAdminView.php',
+                        'result' => $result
+                    );
+
+                    $this->render($tab);
+                }else{
+                    header('location:' . superController::URL . 'produit/index');
+                }
+            } else{
+                header('location:' . superController::URL . 'produit/index');
+            }
+        }
+
+        public function ajout(){
+            session_start();
+
+            if($this->isConnected()){
+                if($this->isAdmin()){
+                    $tab = array(
+                        'directoryView' => 'produit',
+                        'fileView' => 'ajoutProduitAdminView.php'
+                    );
+
+                }else{
+                    header('location:' . superController::URL . 'produit/index');
+                }
+            } else{
+                header('location:' . superController::URL . 'produit/index');
+            }
+        }
     }
 }
 

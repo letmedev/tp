@@ -78,7 +78,7 @@ namespace controller\superController{
                     <ul>
                         <li><a href="' . \controller\superController\superController::URL . 'commande/affichageCommande">Gestion Commande</a></li>
                         <li><a href="' . \controller\superController\superController::URL . 'salle/gestionSalle">Gestion Salle</a></li>
-                        <li><a href="' . \controller\superController\superController::URL . 'commande/produit">Gestion Produit</a></li>
+                        <li><a href="' . \controller\superController\superController::URL . 'produit/gestionProduit">Gestion Produit</a></li>
                     </ul>
                 ';
             } else{

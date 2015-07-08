@@ -157,6 +157,25 @@ namespace model\produitModel{
                 return false;
             }
         }
+
+        public function selectAllProduit(){
+            $bdd = $this->getDatabase();
+
+            $req = "SELECT p.id_produit, p.date_arrivee, p.date_depart, p.id_salle, p.prix, p.etat,s.id_salle, s.titre, s.pays,
+            s.ville, s.adresse, s.cp, s.description, s.photo, s.capacite, s.categorie
+            FROM produit p, salle s
+            WHERE p.id_salle = s.id_salle";
+
+            $requete = $bdd->prepare($req);
+            $requete->execute();
+            $result = $requete->fetchAll();
+
+            if($result){
+                return $result;
+            } else{
+                return false;
+            }
+        }
     }
 }
 

@@ -5,7 +5,10 @@ $route = array(
         'index' => 'index',
         'fiche' => 'fiche',
         'panier' => 'panier',
-        'recherche' => 'recherche'
+        'recherche' => 'recherche',
+        'gestionProduit' => 'gestionProduit',
+        'affichage' => 'affichage',
+        'ajout' => 'ajout'
     ),
     'membre' => array(
         'connexion' => 'connexion',
