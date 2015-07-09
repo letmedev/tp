@@ -262,6 +262,34 @@ namespace controller\produitController{
                     $objProduitModel = new produitModel();
                     $result = $objProduitModel->selectAllSalle();
 
+                    if(isset($_POST['btnAddProduit']) && $_POST['btnAddProduit'] == 'Enregistrer'){
+
+                        if(!empty($_POST['prix'])){
+                            $date_arrivee = $_POST['annee_date_arrivee'] .'-'. $_POST['mois_date_arrivee'] .'-'.$_POST['jour_date_arrivee'];
+                            $date_depart = $_POST['annee_date_depart'] .'-'. $_POST['mois_date_depart'] .'-'. $_POST['jour_date_depart'];
+
+                            $data = array(
+                                'date_arrivee' => $date_arrivee,
+                                'date_depart' => $date_depart,
+                                'id_salle' => $_POST['id_salle'],
+                                'prix' => $_POST['prix'],
+                                'etat' => $_POST['etat']
+                            );
+
+                            $objProduitModel->addProduit($data);
+
+                            if($result){
+                                $this->msg .= "<div class='msgSuccess'>Votre produit à bien été enregistrer</div>";
+                            } else{
+                                $this->msg .= "<div class='msgAlert'>Une erreur est survenue pendant l'enregistrement.</div>";
+                            }
+                        } else{
+                            $this->msg .= "<div class='msgWarning'>Tous les champs doivent être rempli</div>";
+                        }
+
+
+                    }
+
                     $tab = array(
                         'directoryView' => 'produit',
                         'fileView' => 'ajoutProduitAdminView.php',

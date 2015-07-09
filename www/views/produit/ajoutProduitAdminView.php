@@ -30,7 +30,7 @@
             ?>
         </select>
         <label for="annee_date_arrivee">Année</label>
-        <select name="anne_date_arrivee" id="annee_date_arrivee">
+        <select name="annee_date_arrivee" id="annee_date_arrivee">
             <?php
                 for($i = 2015; $i <= 2025; $i++){
                     echo '<option value="'.$i.'">'.$i.'</option>';
@@ -49,15 +49,15 @@
             ?>
         </select>
         <label for="mois_date_depart">Mois</label>
-        <select name="mois_date_arrivee" id="mois_date_depart">
+        <select name="mois_date_depart" id="mois_date_depart">
             <?php
                 for($i = 1; $i <= 12; $i++){
                     echo '<option value="'.$i.'">'.$i.'</option>';
                 }
             ?>
         </select>
-        <label for="anne_date_depart">Année</label>
-        <select name="anne_date_depart" id="anne_date_depart">
+        <label for="annee_date_depart">Année</label>
+        <select name="annee_date_depart" id="annee_date_depart">
             <?php
                 for($i = 2015; $i <= 2025; $i++){
                     echo '<option value="'.$i.'">'.$i.'</option>';

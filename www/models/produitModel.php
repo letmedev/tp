@@ -9,7 +9,21 @@ namespace model\produitModel{
     class produitModel extends superModel{
 
         public function addProduit($tab){
-            extract($tab);
+            $bdd = $this->getDatabase();
+            $req = "INSERT INTO produit(date_arrivee, date_depart, id_salle, id_promo, prix, etat, date_enregistrement) VALUES(:date_arrivee, :date_depart, :id_salle, NULL, :prix, :etat, NOW())";
+            $requete = $bdd->prepare($req);
+            $requete->bindValue(':date_arrivee', $tab['date_arrivee']);
+            $requete->bindValue(':date_depart', $tab['date_depart']);
+            $requete->bindValue(':id_salle', $tab['id_salle']);
+            $requete->bindValue(':prix', $tab['prix']);
+            $requete->bindValue(':etat', $tab['etat']);
+            $result = $requete->execute();
+
+            if($result){
+                return true;
+            } else{
+                return false;
+            }
         }
 
         public function selectProduitByTitre($titre){
