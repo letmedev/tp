@@ -256,10 +256,19 @@ namespace controller\produitController{
 
             if($this->isConnected()){
                 if($this->isAdmin()){
+
+                    include('..' . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'produitModel.php');
+
+                    $objProduitModel = new produitModel();
+                    $result = $objProduitModel->selectAllSalle();
+
                     $tab = array(
                         'directoryView' => 'produit',
-                        'fileView' => 'ajoutProduitAdminView.php'
+                        'fileView' => 'ajoutProduitAdminView.php',
+                        'result' => $result
                     );
+
+                    $this->render($tab);
 
                 }else{
                     header('location:' . superController::URL . 'produit/index');

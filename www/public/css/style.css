@@ -1773,3 +1773,50 @@ footer{
 .btnSupprProduit:hover{
     background-color: #B2312D;
 }
+
+.formAddProduit{
+    display: block;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formAddProduitLabel{
+    display: inline-block;
+    width: 100px;
+    font-family: champagne-limousine, sans-serif;
+    margin-top: 20px;
+}
+
+.date{
+    display: block;
+    margin-top: 20px;
+}
+
+.formAddProduitEtat{
+    display: block;
+    margin-top: 20px;
+}
+
+.btnAddProduit{
+    width: 100%;
+    height: 35px;
+    border: none;
+    margin-top: 20px;
+    font-family: champagne-limousine, sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #15b5f1;
+}
+
+.btnAddProduit:hover {
+    background-color: #0199d2;
+}
+
+.formAddProduitSelect{
+    width: 280px;
+}
+
+.formAddProduitPrix{
+    width: 270px;
+}

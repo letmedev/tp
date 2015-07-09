@@ -176,6 +176,19 @@ namespace model\produitModel{
                 return false;
             }
         }
+
+        public function selectAllSalle(){
+            $bdd = $this->getDatabase();
+
+            $req = "SELECT id_salle, titre, photo FROM salle";
+            $requete = $bdd->prepare($req);
+            $requete->execute();
+
+            $result = $requete->fetchAll();
+
+            return $result;
+
+        }
     }
 }
 
